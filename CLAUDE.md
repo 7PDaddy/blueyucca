@@ -13,12 +13,12 @@ Repo: github.com/7PDaddy/blueyucca. Separate brand from the Dolan sites (GYLR, R
 
 ## Structure
 
-- `src/layouts/Layout.astro`: the shared shell. Charset, viewport, Umami, and GoatCounter live here, so site-wide scripts go here once.
+- `src/layouts/Layout.astro`: the shared shell. Charset, viewport, and GoatCounter live here, so site-wide scripts go here once.
 - `src/pages/*.astro`: one file per page. Each page passes its own title, meta, canonical, OG tags and its own inline `<style>` through `<Fragment slot="head">`. Pages were ported 1:1 from the original hand-written HTML, so each still carries its own CSS and its own header and footer markup.
 - `<style is:inline>` and `<script is:inline>` keep Astro from rewriting the original CSS and JS. Keep `is:inline` on them.
 - `public/`: copied as is. `downloads/` (the template files people download), `frontpage/` (the FrontPage 2003 experiment, plain HTML on purpose, keep it that way), `robots.txt`, `sitemap.xml`.
 - Contact form posts to Web3Forms from `contact.astro`.
-- Analytics: Umami (every page except `/blog/`, matching the old site) and GoatCounter (every page, including `/frontpage/` which has the tag in its HTML).
+- Analytics: GoatCounter only, on every page (including `/frontpage/`, which has the tag in its HTML). No Umami.
 
 ## URLs and SEO
 
