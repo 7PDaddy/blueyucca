@@ -1,0 +1,20 @@
+---
+// Shared shell for every page. Each page passes its own title, meta tags
+// and inline <style> through the "head" slot. Site-wide scripts live here.
+interface Props {
+  umami?: boolean;
+}
+const { umami = true } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<slot name="head" />
+{umami && <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="c37704f9-3d33-48f7-8f1f-c6ea65dc7189"></script>}
+</head>
+<body>
+<slot />
+</body>
+</html>

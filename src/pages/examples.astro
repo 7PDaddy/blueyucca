@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+<Fragment slot="head">
+<meta name="description" content="Download free single file HTML website templates modeled on real small business sites. No subscription, no website builder lock-in. Edit them with AI and own them forever.">
+<title>Free HTML Website Templates for Small Business | BlueYucca</title>
+<link rel="canonical" href="https://blueyucca.com/examples">
+<meta property="og:site_name" content="BlueYucca">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free HTML Website Templates for Small Business | BlueYucca">
+<meta property="og:description" content="Download free single file HTML website templates modeled on real small business sites. No subscription, no website builder lock-in. Edit them with AI and own them forever.">
+<meta property="og:url" content="https://blueyucca.com/examples">
+<meta name="twitter:card" content="summary">
+<style is:inline>
+  :root {
+    --cream: #FAF6ED; --cream-deep: #F3ECDC; --card: #FFFDF8;
+    --sand: #E5DAC3; --sand-dark: #D5C6A5;
+    --ink: #1E2A45; --ink-soft: #52607E;
+    --blue: #2455C4; --blue-deep: #17357F; --blue-dark: #1B3A8C;
+    --blue-soft: #4B79DC; --blue-wash: #E9EFFB; --blue-line: #C9D8F5;
+    --haz: #F2C94C;
+    --mono: "SFMono-Regular", Menlo, Consolas, "Courier New", monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--cream); color: var(--ink); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--blue); color: var(--cream); }
+  a { color: var(--blue); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,246,237,0.88);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--ink);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 13px 24px; max-width: 1100px; margin: 0 auto; }
+  .brand {
+    font-weight: 900; font-size: 1.45rem; color: var(--blue-deep);
+    text-decoration: none; letter-spacing: -0.03em;
+    transform: rotate(-2deg); display: inline-block;
+    text-shadow: 2px 2px 0 var(--sand); transition: transform 0.15s ease;
+  }
+  .brand:hover { transform: rotate(1deg) scale(1.04); }
+  .brand .b1 { color: var(--blue); } .brand .b2 { color: var(--ink); }
+  .nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.15s ease; }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-links .nav-cta {
+    background: var(--blue); color: #fff; padding: 8px 18px;
+    border: 2px solid var(--blue-deep); border-radius: 8px;
+    box-shadow: 0 3px 0 var(--blue-deep); transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .nav-links .nav-cta:hover { color: #fff; transform: translateY(2px); box-shadow: 0 1px 0 var(--blue-deep); }
+  .hero { padding: 64px 0 40px; }
+  h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 850; color: var(--ink); margin-bottom: 16px; }
+  .lede { font-size: clamp(1.02rem, 2vw, 1.15rem); color: var(--ink-soft); max-width: 40em; margin-bottom: 26px; }
+  section { padding: 8px 0 56px; }
+  .eyebrow {
+    display: inline-block; font-family: var(--mono);
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--blue);
+    border: 1.5px solid var(--blue-line); background: var(--blue-wash);
+    border-radius: 6px; padding: 3px 10px; margin-bottom: 14px;
+  }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.02em; line-height: 1.15; font-weight: 800; color: var(--ink); margin: 42px 0 12px; }
+  h3 { color: var(--ink); letter-spacing: -0.01em; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 700;
+    padding: 12px 24px; border-radius: 10px; font-size: 1rem;
+    border: 2px solid var(--blue-deep); margin: 4px 8px 4px 0;
+    transition: transform 0.1s ease, box-shadow 0.1s ease; cursor: pointer;
+  }
+  .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 4px 0 var(--blue-deep); }
+  .btn-primary:hover { transform: translateY(3px); box-shadow: 0 1px 0 var(--blue-deep); }
+  .btn-ghost { color: var(--blue-deep); background: var(--card); box-shadow: 0 4px 0 var(--sand-dark); border-color: var(--ink); }
+  .btn-ghost:hover { transform: translateY(3px); box-shadow: 0 1px 0 var(--sand-dark); }
+  .note {
+    background: var(--blue-wash); border: 2px solid var(--blue-line); border-radius: 12px;
+    padding: 18px 22px; font-size: 0.98rem; margin: 28px 0;
+  }
+  .pricetag {
+    display: inline-block; font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.06em; color: var(--blue-deep); background: var(--haz);
+    border: 2px solid var(--ink); border-radius: 6px; padding: 3px 10px;
+    box-shadow: 2px 2px 0 var(--sand-dark); transform: rotate(-1.5deg);
+  }
+  ul.check { list-style: none; padding: 0; margin: 16px 0; }
+  ul.check li { padding: 7px 0 7px 32px; position: relative; color: var(--ink); }
+  ul.check li::before {
+    content: "\2713"; position: absolute; left: 4px; top: 7px;
+    color: var(--blue); font-weight: 900; font-family: var(--mono);
+  }
+  .promptbox {
+    background: #141821; color: #C7E3D4; border: 2px solid var(--ink); border-radius: 12px;
+    padding: 20px 22px; font-family: var(--mono); font-size: 0.86rem; line-height: 1.6;
+    white-space: pre-wrap; margin: 16px 0; box-shadow: 5px 5px 0 var(--sand-dark);
+  }
+  .retro-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--mono); font-size: 0.74rem; font-weight: 700;
+    color: var(--blue-deep); background: var(--card);
+    border: 2px solid var(--ink); border-radius: 6px;
+    padding: 5px 12px; margin-bottom: 18px; box-shadow: 3px 3px 0 var(--sand-dark);
+  }
+  footer.site-footer { border-top: 2px solid var(--ink); margin-top: 48px; padding: 40px 0 48px; text-align: center; color: var(--ink-soft); font-size: 0.93rem; }
+  footer.site-footer nav { margin-bottom: 12px; }
+  footer.site-footer nav a { color: var(--blue-deep); text-decoration: none; margin: 0 10px; font-weight: 600; }
+  footer.site-footer nav a:hover { text-decoration: underline; }
+  @media (max-width: 760px) { .nav { flex-direction: column; gap: 12px; } .hero { padding: 44px 0 28px; } }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 26px; margin: 28px 0; }
+  .card {
+    background: var(--card); border: 2px solid var(--ink); border-radius: 14px;
+    padding: 24px; display: flex; flex-direction: column;
+    box-shadow: 5px 5px 0 var(--sand-dark);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 var(--sand-dark); }
+  .card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+  .card p { color: var(--ink-soft); font-size: 0.97rem; margin-bottom: 12px; }
+  .badge-chip {
+    display: inline-block; align-self: flex-start; font-family: var(--mono);
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--blue-deep); background: var(--blue-wash);
+    border: 1.5px solid var(--blue-line); border-radius: 6px; padding: 3px 9px; margin-bottom: 12px;
+  }
+  .wild { font-size: 0.92rem; margin-bottom: 14px; color: var(--ink); }
+  .card .tagrow { margin: 2px 0 16px; }
+  .card .actions { margin-top: auto; }
+  .card .guide { margin-top: 12px; font-size: 0.9rem; }
+  .preview {
+    border: 2px solid var(--ink); border-radius: 10px; background: var(--cream);
+    height: 120px; margin-bottom: 16px; padding: 10px; display: grid; gap: 6px;
+    box-shadow: 3px 3px 0 var(--sand); transform: rotate(-0.8deg);
+  }
+  .card:nth-child(2) .preview { transform: rotate(0.8deg); }
+  .preview .bar { background: var(--blue-soft); border-radius: 4px; }
+  .preview.product { grid-template-rows: 18px 1fr 14px; }
+  .preview.product .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .preview.product .grid3 div { background: #fff; border: 1.5px solid var(--sand-dark); border-radius: 4px; }
+  .preview.bento { grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; }
+  .preview.bento div { background: #fff; border: 1.5px solid var(--sand-dark); border-radius: 4px; }
+  .preview.bento div:first-child { grid-row: 1 / 3; background: var(--blue-soft); }
+  .card.uc { border-style: dashed; background: transparent; box-shadow: none; }
+  .card.uc:hover { transform: none; box-shadow: none; }
+  .hazbar {
+    height: 18px; border: 2px solid var(--ink); border-radius: 6px; margin-bottom: 16px;
+    background: repeating-linear-gradient(45deg, var(--haz) 0 14px, var(--ink) 14px 28px);
+  }
+  .uc-title { font-family: var(--mono); font-size: 1.15rem; font-weight: 700; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 8px; }
+</style>
+</Fragment>
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="/"><span class="b1">Blue</span><span class="b2">Yucca</span></a>
+    <nav class="nav-links">
+      <a href="/examples">Examples</a>
+      <a href="/prompt-builder">Prompt Builder</a>
+      <a href="/hosting">Hosting Guide</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#about">About</a>
+      <a href="/contact">Contact</a>
+      <a class="nav-cta" href="/prompt-builder">Start building</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <span class="eyebrow">See it, then own it</span>
+    <h1>Examples and free templates.</h1>
+    <p class="lede">Every template here is a single HTML file. Open the demo, download the file, and change the words and colors to fit your business. Each one is modeled on a real site that is live on the web right now.</p>
+  </section>
+
+  <div class="cards">
+    <div class="card reveal">
+      <div class="preview product">
+        <div class="bar"></div>
+        <div class="grid3"><div></div><div></div><div></div></div>
+        <div class="bar"></div>
+      </div>
+      <span class="badge-chip">Product brand or online seller</span>
+      <h3>Product Brand Template</h3>
+      <p>For anyone who sells things: a brand story up top, a product showcase in the middle, and links out to wherever you actually sell. Modeled on a real product brand site.</p>
+      <p class="wild">See it in the wild: <a href="https://bohst.co">bohst.co</a></p>
+      <div class="tagrow"><span class="pricetag">$0.00 &middot; MARKED DOWN FROM $0.00</span></div>
+      <div class="actions">
+        <a class="btn btn-primary" href="/downloads/product-brand-template.html">View demo</a>
+        <a class="btn btn-ghost" href="/downloads/product-brand-template.html" download>Download</a>
+      </div>
+      <p class="guide"><a href="/templates/product-brand">Prompts and setup guide for this template</a></p>
+    </div>
+
+    <div class="card reveal">
+      <div class="preview bento">
+        <div></div><div></div><div></div>
+      </div>
+      <span class="badge-chip">Brand hub</span>
+      <h3>Brand Hub Template</h3>
+      <p>One page that ties everything you do together: your story, your projects, and tiles that link out to each one. A bento grid layout, modeled on a real hub site that has been running since 2003.</p>
+      <p class="wild">See it in the wild: <a href="https://cultivatum.com">cultivatum.com</a></p>
+      <div class="tagrow"><span class="pricetag">$0.00 &middot; MARKED DOWN FROM $0.00</span></div>
+      <div class="actions">
+        <a class="btn btn-primary" href="/downloads/brand-hub-template.html">View demo</a>
+        <a class="btn btn-ghost" href="/downloads/brand-hub-template.html" download>Download</a>
+      </div>
+      <p class="guide"><a href="/templates/brand-hub">Prompts and setup guide for this template</a></p>
+    </div>
+
+    <div class="card uc reveal">
+      <div class="hazbar" aria-hidden="true"></div>
+      <div class="uc-title">UNDER CONSTRUCTION</div>
+      <span class="badge-chip">Service provider or local business</span>
+      <p>A template for the folks who do the work: contractors, cleaners, stylists, tutors, and every local business in between. It is next on the bench.</p>
+      <p style="color: var(--ink-soft); font-size: 0.9rem; font-family: var(--mono);">Genuinely under construction. The stripes are not ironic.</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>A quick coaching note:</strong> AI tools are helpful but not identical. Claude, ChatGPT, and Gemini will each give you a slightly different result from the same prompt, and even the same tool can vary from one day to the next. That is normal. If the first result is not quite right, ask for changes in plain words and it will get there.
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="retro-badge">MADE WITH HTML AND STUBBORNNESS</div>
+    <nav>
+      <a href="/">Home</a> &middot;
+      <a href="/examples">Examples</a> &middot;
+      <a href="/prompt-builder">Prompt Builder</a> &middot;
+      <a href="/hosting">Hosting Guide</a> &middot;
+      <a href="/blog/">Blog</a> &middot;
+      <a href="/contact">Contact</a> &middot;
+      <a href="/frontpage/">The FrontPage Experiment</a> &middot;
+      <a href="https://www.tiktok.com/@blueyucca">TikTok</a>
+    </nav>
+    <div>BlueYucca is a <a href="https://cultivatum.com">Cultivatum LLC</a> project, part of the <a href="https://kakt.ai">kakt.ai</a> family. Arizona, est. 2003.</div>
+  </div>
+</footer>
+
+<script is:inline>
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</Layout>

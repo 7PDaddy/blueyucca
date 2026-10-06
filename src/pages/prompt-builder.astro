@@ -1,0 +1,420 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+<Fragment slot="head">
+<meta name="description" content="Answer plain questions and get a ready to paste prompt that tells Claude, ChatGPT, or Gemini exactly how to build your small business website as one simple HTML file.">
+<title>Free AI Website Prompt Builder | BlueYucca</title>
+<link rel="canonical" href="https://blueyucca.com/prompt-builder">
+<meta property="og:site_name" content="BlueYucca">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free AI Website Prompt Builder | BlueYucca">
+<meta property="og:description" content="Answer plain questions and get a ready to paste prompt that tells Claude, ChatGPT, or Gemini exactly how to build your small business website as one simple HTML file.">
+<meta property="og:url" content="https://blueyucca.com/prompt-builder">
+<meta name="twitter:card" content="summary">
+<style is:inline>
+  :root {
+    --cream: #FAF6ED; --cream-deep: #F3ECDC; --card: #FFFDF8;
+    --sand: #E5DAC3; --sand-dark: #D5C6A5;
+    --ink: #1E2A45; --ink-soft: #52607E;
+    --blue: #2455C4; --blue-deep: #17357F; --blue-dark: #1B3A8C;
+    --blue-soft: #4B79DC; --blue-wash: #E9EFFB; --blue-line: #C9D8F5;
+    --haz: #F2C94C;
+    --mono: "SFMono-Regular", Menlo, Consolas, "Courier New", monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--cream); color: var(--ink); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--blue); color: var(--cream); }
+  a { color: var(--blue); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,246,237,0.88);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--ink);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 13px 24px; max-width: 1100px; margin: 0 auto; }
+  .brand {
+    font-weight: 900; font-size: 1.45rem; color: var(--blue-deep);
+    text-decoration: none; letter-spacing: -0.03em;
+    transform: rotate(-2deg); display: inline-block;
+    text-shadow: 2px 2px 0 var(--sand); transition: transform 0.15s ease;
+  }
+  .brand:hover { transform: rotate(1deg) scale(1.04); }
+  .brand .b1 { color: var(--blue); } .brand .b2 { color: var(--ink); }
+  .nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.15s ease; }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-links .nav-cta {
+    background: var(--blue); color: #fff; padding: 8px 18px;
+    border: 2px solid var(--blue-deep); border-radius: 8px;
+    box-shadow: 0 3px 0 var(--blue-deep); transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .nav-links .nav-cta:hover { color: #fff; transform: translateY(2px); box-shadow: 0 1px 0 var(--blue-deep); }
+  .hero { padding: 64px 0 40px; }
+  h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 850; color: var(--ink); margin-bottom: 16px; }
+  .lede { font-size: clamp(1.02rem, 2vw, 1.15rem); color: var(--ink-soft); max-width: 40em; margin-bottom: 26px; }
+  section { padding: 8px 0 56px; }
+  .eyebrow {
+    display: inline-block; font-family: var(--mono);
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--blue);
+    border: 1.5px solid var(--blue-line); background: var(--blue-wash);
+    border-radius: 6px; padding: 3px 10px; margin-bottom: 14px;
+  }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.02em; line-height: 1.15; font-weight: 800; color: var(--ink); margin: 42px 0 12px; }
+  h3 { color: var(--ink); letter-spacing: -0.01em; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 700;
+    padding: 12px 24px; border-radius: 10px; font-size: 1rem;
+    border: 2px solid var(--blue-deep); margin: 4px 8px 4px 0;
+    transition: transform 0.1s ease, box-shadow 0.1s ease; cursor: pointer;
+  }
+  .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 4px 0 var(--blue-deep); }
+  .btn-primary:hover { transform: translateY(3px); box-shadow: 0 1px 0 var(--blue-deep); }
+  .btn-ghost { color: var(--blue-deep); background: var(--card); box-shadow: 0 4px 0 var(--sand-dark); border-color: var(--ink); }
+  .btn-ghost:hover { transform: translateY(3px); box-shadow: 0 1px 0 var(--sand-dark); }
+  .note {
+    background: var(--blue-wash); border: 2px solid var(--blue-line); border-radius: 12px;
+    padding: 18px 22px; font-size: 0.98rem; margin: 28px 0;
+  }
+  .pricetag {
+    display: inline-block; font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.06em; color: var(--blue-deep); background: var(--haz);
+    border: 2px solid var(--ink); border-radius: 6px; padding: 3px 10px;
+    box-shadow: 2px 2px 0 var(--sand-dark); transform: rotate(-1.5deg);
+  }
+  ul.check { list-style: none; padding: 0; margin: 16px 0; }
+  ul.check li { padding: 7px 0 7px 32px; position: relative; color: var(--ink); }
+  ul.check li::before {
+    content: "\2713"; position: absolute; left: 4px; top: 7px;
+    color: var(--blue); font-weight: 900; font-family: var(--mono);
+  }
+  .promptbox {
+    background: #141821; color: #C7E3D4; border: 2px solid var(--ink); border-radius: 12px;
+    padding: 20px 22px; font-family: var(--mono); font-size: 0.86rem; line-height: 1.6;
+    white-space: pre-wrap; margin: 16px 0; box-shadow: 5px 5px 0 var(--sand-dark);
+  }
+  .retro-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--mono); font-size: 0.74rem; font-weight: 700;
+    color: var(--blue-deep); background: var(--card);
+    border: 2px solid var(--ink); border-radius: 6px;
+    padding: 5px 12px; margin-bottom: 18px; box-shadow: 3px 3px 0 var(--sand-dark);
+  }
+  footer.site-footer { border-top: 2px solid var(--ink); margin-top: 48px; padding: 40px 0 48px; text-align: center; color: var(--ink-soft); font-size: 0.93rem; }
+  footer.site-footer nav { margin-bottom: 12px; }
+  footer.site-footer nav a { color: var(--blue-deep); text-decoration: none; margin: 0 10px; font-weight: 600; }
+  footer.site-footer nav a:hover { text-decoration: underline; }
+  @media (max-width: 760px) { .nav { flex-direction: column; gap: 12px; } .hero { padding: 44px 0 28px; } }
+  .builder { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 10px 0 30px; }
+  @media (max-width: 820px) { .builder { grid-template-columns: 1fr; } }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-weight: 700; color: var(--ink); margin-bottom: 6px; font-size: 0.97rem; }
+  .field input, .field textarea, .field select {
+    width: 100%; padding: 11px 13px; border: 2px solid var(--ink); border-radius: 10px;
+    font-family: inherit; font-size: 1rem; background: var(--card); color: var(--ink);
+    box-shadow: 3px 3px 0 var(--sand); transition: box-shadow 0.12s ease;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    outline: none; border-color: var(--blue); box-shadow: 3px 3px 0 var(--blue-soft);
+  }
+  .field textarea { min-height: 84px; resize: vertical; }
+  .field input::placeholder, .field textarea::placeholder { color: #9AA3B8; font-style: italic; }
+  .layouts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .layout {
+    border: 2px solid var(--ink); border-radius: 10px; padding: 10px; cursor: pointer;
+    background: var(--card); text-align: center; box-shadow: 3px 3px 0 var(--sand);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .layout:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--sand-dark); }
+  .layout.selected { border-color: var(--blue); background: var(--blue-wash); box-shadow: 3px 3px 0 var(--blue-soft); }
+  .layout .mini { height: 64px; display: grid; gap: 4px; margin-bottom: 6px; }
+  .layout .mini div { background: var(--sand); border-radius: 3px; }
+  .layout.selected .mini div { background: var(--blue-soft); }
+  .layout span { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; color: var(--ink); }
+  .mini.stack { grid-template-rows: 18px 1fr 12px; }
+  .mini.grid { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+  .mini.split { grid-template-columns: 1.4fr 1fr; }
+  #output { position: sticky; top: 84px; align-self: start; }
+  #promptOut {
+    min-height: 320px; font-family: var(--mono); font-size: 0.85rem; line-height: 1.6;
+    background: #141821; color: #C7E3D4; border: 2px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--sand-dark);
+  }
+  #toast {
+    position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%);
+    background: var(--ink); color: var(--cream); padding: 12px 22px; border-radius: 10px;
+    border: 2px solid var(--ink); box-shadow: 0 4px 0 rgba(0,0,0,0.25);
+    font-family: var(--mono); font-size: 0.85rem; font-weight: 700;
+    opacity: 0; transition: opacity 0.3s; pointer-events: none; max-width: 90vw; text-align: center;
+  }
+  #toast.show { opacity: 1; }
+  .label-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  .label-row label { margin-bottom: 0; }
+  .mic {
+    display: none; align-items: center; gap: 5px; cursor: pointer;
+    font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
+    color: var(--blue-deep); background: var(--card);
+    border: 2px solid var(--ink); border-radius: 6px; padding: 3px 8px;
+    box-shadow: 2px 2px 0 var(--sand); transition: transform 0.1s ease;
+  }
+  .mic:hover { transform: translateY(1px); box-shadow: 1px 1px 0 var(--sand); }
+  .voice-on .mic { display: inline-flex; }
+  .mic.listening { color: #fff; background: #B04A3A; border-color: #7E3428; animation: micpulse 1.2s ease-out infinite; }
+  @keyframes micpulse { 0% { box-shadow: 0 0 0 0 rgba(176,74,58,0.35); } 100% { box-shadow: 0 0 0 8px rgba(176,74,58,0); } }
+  @media (prefers-reduced-motion: reduce) { .mic.listening { animation: none; } }
+  .copy-card {
+    display: none; margin-top: 16px; background: var(--blue-wash);
+    border: 2px solid var(--ink); border-radius: 12px; padding: 18px 20px;
+    box-shadow: 4px 4px 0 var(--blue-soft);
+  }
+  .copy-card .cc-title { font-family: var(--mono); font-weight: 700; font-size: 0.95rem; color: var(--blue-deep); margin-bottom: 6px; }
+  .copy-card p { font-size: 0.93rem; color: var(--ink); margin-bottom: 12px; }
+  .copy-card .btn { padding: 8px 16px; font-size: 0.9rem; }
+</style>
+</Fragment>
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="/"><span class="b1">Blue</span><span class="b2">Yucca</span></a>
+    <nav class="nav-links">
+      <a href="/examples">Examples</a>
+      <a href="/prompt-builder">Prompt Builder</a>
+      <a href="/hosting">Hosting Guide</a>
+      <a href="/blog/">Blog</a>
+      <a href="/#about">About</a>
+      <a href="/contact">Contact</a>
+      <a class="nav-cta" href="/prompt-builder">Start building</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero" style="padding-bottom: 10px;">
+    <span class="eyebrow">Step 2: Build</span>
+    <h1>Prompt Builder.</h1>
+    <p class="lede">Answer a few plain questions. As you type, a ready to paste prompt appears on the right. Copy it into Claude, ChatGPT, or Gemini and it will build your website with you.</p>
+  </section>
+
+  <div class="builder">
+
+    <div>
+      <div class="field">
+        <label for="kind">What kind of site do you need?</label>
+        <select id="kind">
+          <option value="service">Service provider or local business</option>
+          <option value="product">Product brand or online seller</option>
+          <option value="creator">Creator or portfolio</option>
+          <option value="hub">Brand hub (one page linking everything)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <div class="label-row"><label for="bizname">Business or brand name</label><button type="button" class="mic" data-for="bizname" aria-label="Speak instead of typing"><svg width="10" height="13" viewBox="0 0 10 13" fill="currentColor"><rect x="2.8" y="0" width="4.4" height="8" rx="2.2"/><path d="M0.5 5.5 a4.5 4.5 0 0 0 9 0" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="4.3" y="10" width="1.4" height="2.5"/></svg>SPEAK</button></div>
+        <input id="bizname" type="text" placeholder="Example: Desert Bloom Cleaning">
+      </div>
+
+      <div class="field">
+        <div class="label-row"><label for="about">Describe it in a sentence or two</label><button type="button" class="mic" data-for="about" aria-label="Speak instead of typing"><svg width="10" height="13" viewBox="0 0 10 13" fill="currentColor"><rect x="2.8" y="0" width="4.4" height="8" rx="2.2"/><path d="M0.5 5.5 a4.5 4.5 0 0 0 9 0" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="4.3" y="10" width="1.4" height="2.5"/></svg>SPEAK</button></div>
+        <textarea id="about" placeholder="Example: We are a family owned cleaning service in Surprise, Arizona, serving homes and small offices since 2015."></textarea>
+      </div>
+
+      <div class="field" id="q-service">
+        <div class="label-row"><label for="services">What services do you offer?</label><button type="button" class="mic" data-for="services" aria-label="Speak instead of typing"><svg width="10" height="13" viewBox="0 0 10 13" fill="currentColor"><rect x="2.8" y="0" width="4.4" height="8" rx="2.2"/><path d="M0.5 5.5 a4.5 4.5 0 0 0 9 0" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="4.3" y="10" width="1.4" height="2.5"/></svg>SPEAK</button></div>
+        <textarea id="services" placeholder="Example: weekly home cleaning, move out cleaning, small office cleaning"></textarea>
+      </div>
+
+      <div class="field" id="q-product" style="display:none;">
+        <div class="label-row"><label for="products">What are your main products, and where can people buy them?</label><button type="button" class="mic" data-for="products" aria-label="Speak instead of typing"><svg width="10" height="13" viewBox="0 0 10 13" fill="currentColor"><rect x="2.8" y="0" width="4.4" height="8" rx="2.2"/><path d="M0.5 5.5 a4.5 4.5 0 0 0 9 0" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="4.3" y="10" width="1.4" height="2.5"/></svg>SPEAK</button></div>
+        <textarea id="products" placeholder="Example: handmade candles and wax melts, sold on our Etsy shop"></textarea>
+      </div>
+
+      <div class="field" id="q-creator" style="display:none;">
+        <div class="label-row"><label for="work">What work do you want to show off?</label><button type="button" class="mic" data-for="work" aria-label="Speak instead of typing"><svg width="10" height="13" viewBox="0 0 10 13" fill="currentColor"><rect x="2.8" y="0" width="4.4" height="8" rx="2.2"/><path d="M0.5 5.5 a4.5 4.5 0 0 0 9 0" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="4.3" y="10" width="1.4" height="2.5"/></svg>SPEAK</button></div>
+        <textarea id="work" placeholder="Example: wedding photography, family portraits, and a few travel photo series"></textarea>
+      </div>
+
+      <div class="field" id="q-hub" style="display:none;">
+        <div class="label-row"><label for="projects">What projects or links should the hub connect?</label><button type="button" class="mic" data-for="projects" aria-label="Speak instead of typing"><svg width="10" height="13" viewBox="0 0 10 13" fill="currentColor"><rect x="2.8" y="0" width="4.4" height="8" rx="2.2"/><path d="M0.5 5.5 a4.5 4.5 0 0 0 9 0" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="4.3" y="10" width="1.4" height="2.5"/></svg>SPEAK</button></div>
+        <textarea id="projects" placeholder="Example: my online store, my YouTube channel, and my consulting page"></textarea>
+      </div>
+
+      <div class="field">
+        <div class="label-row"><label for="contact">How should customers reach you?</label><button type="button" class="mic" data-for="contact" aria-label="Speak instead of typing"><svg width="10" height="13" viewBox="0 0 10 13" fill="currentColor"><rect x="2.8" y="0" width="4.4" height="8" rx="2.2"/><path d="M0.5 5.5 a4.5 4.5 0 0 0 9 0" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="4.3" y="10" width="1.4" height="2.5"/></svg>SPEAK</button></div>
+        <input id="contact" type="text" placeholder="Example: phone, email, or a contact form">
+      </div>
+
+      <div class="field">
+        <div class="label-row"><label for="colors">Any colors you want? (optional)</label><button type="button" class="mic" data-for="colors" aria-label="Speak instead of typing"><svg width="10" height="13" viewBox="0 0 10 13" fill="currentColor"><rect x="2.8" y="0" width="4.4" height="8" rx="2.2"/><path d="M0.5 5.5 a4.5 4.5 0 0 0 9 0" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="4.3" y="10" width="1.4" height="2.5"/></svg>SPEAK</button></div>
+        <input id="colors" type="text" placeholder="Example: sage green and cream, or the colors in my logo">
+      </div>
+
+      <div class="field">
+        <label>Pick a rough page layout</label>
+        <div class="layouts">
+          <div class="layout selected" data-layout="a simple top to bottom page: a welcome section, then details, then contact" onclick="pickLayout(this)">
+            <div class="mini stack"><div></div><div></div><div></div></div>
+            <span>TOP TO BOTTOM</span>
+          </div>
+          <div class="layout" data-layout="a grid of tiles or cards, like a bento box, with each tile covering one thing" onclick="pickLayout(this)">
+            <div class="mini grid"><div></div><div></div><div></div><div></div></div>
+            <span>GRID OF TILES</span>
+          </div>
+          <div class="layout" data-layout="a two column layout: my story or photo on one side, details and contact on the other" onclick="pickLayout(this)">
+            <div class="mini split"><div></div><div></div></div>
+            <span>SIDE BY SIDE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="output">
+      <div class="field">
+        <label for="promptOut">Your prompt (updates as you type)</label>
+        <textarea id="promptOut" readonly></textarea>
+      </div>
+      <button class="btn btn-primary" onclick="copyPrompt()">Copy prompt</button>
+      <div class="copy-card" id="copyCard">
+        <div class="cc-title">PROMPT COPIED &#10003;</div>
+        <p>Now paste it into Claude, ChatGPT, or Gemini and watch it get to work. No cookies were harmed or created.</p>
+        <button type="button" class="btn btn-ghost" onclick="document.getElementById('copyCard').style.display='none'">Got it</button>
+      </div>
+      <div class="note">
+        <strong>A quick coaching note:</strong> Claude, ChatGPT, and Gemini will each build something a little different from this same prompt, and even the same tool can vary day to day. That is normal. If the first result is not right, ask for changes in plain words: "make it warmer," "shorter," "bigger text." It listens.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="retro-badge">NO COOKIES. THE TRACKING KIND OR OTHERWISE.</div>
+    <nav>
+      <a href="/">Home</a> &middot;
+      <a href="/examples">Examples</a> &middot;
+      <a href="/prompt-builder">Prompt Builder</a> &middot;
+      <a href="/hosting">Hosting Guide</a> &middot;
+      <a href="/blog/">Blog</a> &middot;
+      <a href="/contact">Contact</a> &middot;
+      <a href="/frontpage/">The FrontPage Experiment</a> &middot;
+      <a href="https://www.tiktok.com/@blueyucca">TikTok</a>
+    </nav>
+    <div>BlueYucca is a <a href="https://cultivatum.com">Cultivatum LLC</a> project, part of the <a href="https://kakt.ai">kakt.ai</a> family. Arizona, est. 2003.</div>
+  </div>
+</footer>
+
+<script is:inline>
+var selectedLayout = "a simple top to bottom page: a welcome section, then details, then contact";
+
+function pickLayout(el) {
+  document.querySelectorAll('.layout').forEach(function(l){ l.classList.remove('selected'); });
+  el.classList.add('selected');
+  selectedLayout = el.getAttribute('data-layout');
+  buildPrompt();
+}
+
+function showQuestions() {
+  var kind = document.getElementById('kind').value;
+  document.getElementById('q-service').style.display = (kind === 'service') ? 'block' : 'none';
+  document.getElementById('q-product').style.display = (kind === 'product') ? 'block' : 'none';
+  document.getElementById('q-creator').style.display = (kind === 'creator') ? 'block' : 'none';
+  document.getElementById('q-hub').style.display = (kind === 'hub') ? 'block' : 'none';
+  buildPrompt();
+}
+
+function val(id) { return document.getElementById(id).value.trim(); }
+
+function buildPrompt() {
+  var kind = document.getElementById('kind').value;
+  var kindText = {
+    service: "a service provider or local business",
+    product: "a product brand or online seller",
+    creator: "a creator or portfolio",
+    hub: "a personal brand hub that links out to everything I do"
+  }[kind];
+
+  var lines = [];
+  lines.push("I am a small business owner, not a developer. Please build me a complete,");
+  lines.push("simple website as a single HTML file with the styles included in the file.");
+  lines.push("");
+  lines.push("The site is for " + kindText + ".");
+  if (val('bizname')) lines.push("Name: " + val('bizname'));
+  if (val('about')) lines.push("About: " + val('about'));
+  if (kind === 'service' && val('services')) lines.push("Services: " + val('services'));
+  if (kind === 'product' && val('products')) lines.push("Products and where to buy: " + val('products'));
+  if (kind === 'creator' && val('work')) lines.push("Work to show: " + val('work'));
+  if (kind === 'hub' && val('projects')) lines.push("Things the hub should link to: " + val('projects'));
+  if (val('contact')) lines.push("Contact: " + val('contact'));
+  if (val('colors')) lines.push("Colors: " + val('colors'));
+  lines.push("Layout: " + selectedLayout + ".");
+  lines.push("");
+  lines.push("Please keep the writing plain and honest, no marketing hype and no filler.");
+  lines.push("Make it work well on phones. Do not use any outside services, trackers, or");
+  lines.push("frameworks. When you are done, give me the complete HTML file and explain in");
+  lines.push("simple numbered steps how to save it as index.html.");
+
+  document.getElementById('promptOut').value = lines.join("\n");
+}
+
+function copyPrompt() {
+  var out = document.getElementById('promptOut');
+  out.select();
+  out.setSelectionRange(0, 99999);
+  try { document.execCommand('copy'); } catch (e) {}
+  if (navigator.clipboard) { navigator.clipboard.writeText(out.value); }
+  document.getElementById('copyCard').style.display = 'block';
+}
+
+/* Voice input (Web Speech API). Buttons only appear in browsers that support it. */
+(function () {
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return;
+  document.body.classList.add('voice-on');
+  var active = null, activeBtn = null;
+  document.querySelectorAll('.mic').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (activeBtn === btn && active) { active.stop(); return; }
+      if (active) { active.stop(); }
+      var field = document.getElementById(btn.getAttribute('data-for'));
+      var rec = new SR();
+      rec.lang = navigator.language || 'en-US';
+      rec.interimResults = false;
+      rec.maxAlternatives = 1;
+      rec.onresult = function (e) {
+        var text = e.results[0][0].transcript;
+        field.value = field.value ? field.value.replace(/\s+$/, '') + ' ' + text : text;
+        buildPrompt();
+      };
+      rec.onend = function () {
+        btn.classList.remove('listening');
+        btn.lastChild.textContent = 'SPEAK';
+        if (activeBtn === btn) { active = null; activeBtn = null; }
+      };
+      rec.onerror = rec.onend;
+      active = rec; activeBtn = btn;
+      btn.classList.add('listening');
+      btn.lastChild.textContent = 'STOP';
+      rec.start();
+    });
+  });
+})();
+
+document.getElementById('kind').addEventListener('change', showQuestions);
+['bizname','about','services','products','work','projects','contact','colors'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', buildPrompt);
+});
+buildPrompt();
+</script>
+</Layout>
