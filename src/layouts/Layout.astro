@@ -13,6 +13,7 @@ const { umami = true } = Astro.props;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <slot name="head" />
 {umami && <script is:inline defer src="https://cloud.umami.is/script.js" data-website-id="c37704f9-3d33-48f7-8f1f-c6ea65dc7189"></script>}
+<script is:inline data-goatcounter="https://blueyucca.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 <slot />
