@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 ---
 <Layout>
 <Fragment slot="head">
@@ -38,33 +39,10 @@ import Layout from '../layouts/Layout.astro';
     .reveal { opacity: 1; transform: none; transition: none; }
     html { scroll-behavior: auto; }
   }
-  header.site {
-    position: sticky; top: 0; z-index: 50;
-    background: rgba(250,246,237,0.88);
-    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 2px solid var(--ink);
-  }
-  .nav { display: flex; align-items: center; justify-content: space-between; padding: 13px 24px; max-width: 1100px; margin: 0 auto; }
-  .brand {
-    font-weight: 900; font-size: 1.45rem; color: var(--blue-deep);
-    text-decoration: none; letter-spacing: -0.03em;
-    transform: rotate(-2deg); display: inline-block;
-    text-shadow: 2px 2px 0 var(--sand); transition: transform 0.15s ease;
-  }
-  .brand:hover { transform: rotate(1deg) scale(1.04); }
-  .brand .b1 { color: var(--blue); } .brand .b2 { color: var(--ink); }
-  .nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-  .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.15s ease; }
-  .nav-links a:hover { color: var(--blue); }
-  .nav-links .nav-cta {
-    background: var(--blue); color: #fff; padding: 8px 18px;
-    border: 2px solid var(--blue-deep); border-radius: 8px;
-    box-shadow: 0 3px 0 var(--blue-deep); transition: transform 0.1s ease, box-shadow 0.1s ease;
-  }
-  .nav-links .nav-cta:hover { color: #fff; transform: translateY(2px); box-shadow: 0 1px 0 var(--blue-deep); }
+
   .hero { padding: 64px 0 40px; }
   h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 850; color: var(--ink); margin-bottom: 16px; }
-  .lede { font-size: clamp(1.02rem, 2vw, 1.15rem); color: var(--ink-soft); max-width: 40em; margin-bottom: 26px; }
+  .lede { font-size: clamp(1.02rem, 2vw, 1.15rem); color: var(--ink-soft); margin-bottom: 26px; }
   section { padding: 8px 0 56px; }
   .eyebrow {
     display: inline-block; font-family: var(--mono);
@@ -117,7 +95,7 @@ import Layout from '../layouts/Layout.astro';
   footer.site-footer nav { margin-bottom: 12px; }
   footer.site-footer nav a { color: var(--blue-deep); text-decoration: none; margin: 0 10px; font-weight: 600; }
   footer.site-footer nav a:hover { text-decoration: underline; }
-  @media (max-width: 760px) { .nav { flex-direction: column; gap: 12px; } .hero { padding: 44px 0 28px; } }
+  @media (max-width: 760px) {  .hero { padding: 44px 0 28px; } }
   ol.steps { counter-reset: s; list-style: none; margin: 18px 0 8px; }
   ol.steps li { counter-increment: s; position: relative; padding: 8px 0 8px 48px; color: var(--ink); }
   ol.steps li::before {
@@ -143,21 +121,7 @@ import Layout from '../layouts/Layout.astro';
   .guarantee .g-title { font-family: var(--mono); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.12em; color: var(--blue); margin-bottom: 8px; }
 </style>
 </Fragment>
-<header class="site">
-  <div class="nav">
-    <a class="brand" href="/"><span class="b1">Blue</span><span class="b2">Yucca</span></a>
-    <nav class="nav-links">
-      <a href="/business-in-a-box">Business in a Box</a>
-      <a href="/examples">Examples</a>
-      <a href="/prompt-builder">Prompt Builder</a>
-      <a href="/hosting">Hosting Guide</a>
-      <a href="/blog/">Blog</a>
-      <a href="/#about">About</a>
-      <a href="/contact">Contact</a>
-      <a class="nav-cta" href="/business-in-a-box">Open the box</a>
-    </nav>
-  </div>
-</header>
+<Header />
 
 <div class="wrap">
   <section class="hero">
