@@ -3,13 +3,13 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout>
 <Fragment slot="head">
-<meta name="description" content="Build a simple small business website with AI and own it forever. Free single file HTML templates, a prompt builder, honest tool recommendations, and free hosting guides. No subscriptions, no lock-in.">
-<title>BlueYucca | Free HTML Website Templates You Own Forever</title>
+<meta name="description" content="A free business in a box checklist for small businesses: own your domain, website, email, contact form and customer list. A five minute self-test for each, and no pile of monthly fees.">
+<title>BlueYucca | Free Business in a Box Checklist for Small Businesses</title>
 <link rel="canonical" href="https://blueyucca.com/">
 <meta property="og:site_name" content="BlueYucca">
 <meta property="og:type" content="website">
-<meta property="og:title" content="BlueYucca | Free HTML Website Templates You Own Forever">
-<meta property="og:description" content="Build a simple small business website with AI and own it forever. Free templates, a prompt builder, honest tool recommendations, and free hosting guides. No subscriptions, no lock-in.">
+<meta property="og:title" content="BlueYucca | Free Business in a Box Checklist for Small Businesses">
+<meta property="og:description" content="Own your domain, website, email, contact form and customer list. A free checklist with a five minute self-test for each item. No pile of monthly fees.">
 <meta property="og:url" content="https://blueyucca.com/">
 <meta name="twitter:card" content="summary">
 <style is:inline>
@@ -219,20 +219,62 @@ import Layout from '../layouts/Layout.astro';
     letter-spacing: 0.1em; background: var(--ink); color: #7CFC9A;
     border: 2px solid var(--ink); padding: 5px 12px; transform: rotate(-1deg);
   }
+  .chip {
+    display: inline-block; font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px;
+    border: 2px solid var(--ink); color: var(--ink); vertical-align: middle;
+  }
+  .chip.used { background: var(--blue-wash); }
+  .chip.testing { background: var(--haz); }
+  .chip.nottested { background: var(--cream-deep); }
+  .chip.mixed { background: var(--card); border-style: dashed; }
+  .chip.cost { background: var(--ink); color: var(--cream); }
+
+  .box-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 8px; }
+  .box-card {
+    display: block; background: var(--card); border: 2px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--sand-dark); padding: 20px; text-decoration: none; color: var(--ink);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+  .box-card:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--sand-dark); }
+  .box-num { font-family: var(--mono); font-weight: 700; font-size: 0.8rem; color: var(--blue-deep); letter-spacing: 0.1em; }
+  .box-card h3 { font-size: 1.1rem; margin: 6px 0 6px; }
+  .box-card p { font-size: 0.93rem; color: var(--ink-soft); margin-bottom: 12px; }
+
+  .legend { display: flex; align-items: center; gap: 12px; margin-top: 10px; flex-wrap: wrap; }
+  .item {
+    background: var(--card); border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--sand-dark);
+    padding: 26px; margin: 34px 0; scroll-margin-top: 90px;
+  }
+  .item-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+  .item-num { font-family: var(--mono); font-weight: 700; font-size: 0.9rem; color: var(--blue-deep); letter-spacing: 0.1em; }
+  .item h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); letter-spacing: -0.02em; line-height: 1.15; }
+  .item dl { margin-top: 8px; }
+  .item dt {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 700; color: var(--blue-deep); margin-top: 18px;
+  }
+  .item dd { margin: 4px 0 0; max-width: 740px; }
+  .selftest { background: var(--blue-wash); border: 2px solid var(--ink); padding: 14px 16px; }
+  .pick { border-top: 2px dashed var(--sand-dark); margin-top: 12px; padding-top: 12px; }
+  .pick:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
+  .why .fine { font-size: 0.85rem; color: var(--ink-soft); font-family: var(--mono); }
+  .hero .datechip { margin-left: 8px; }
+
 </style>
 </Fragment>
 <header class="site">
   <div class="nav">
     <a class="brand" href="/"><span class="b1">Blue</span><span class="b2">Yucca</span></a>
     <nav class="nav-links">
+      <a href="/business-in-a-box">Business in a Box</a>
       <a href="/examples">Examples</a>
       <a href="/prompt-builder">Prompt Builder</a>
-      <a href="#tools">Tools</a>
       <a href="/hosting">Hosting Guide</a>
       <a href="/blog/">Blog</a>
       <a href="#about">About</a>
       <a href="/contact">Contact</a>
-      <a class="nav-cta" href="/prompt-builder">Start building</a>
+      <a class="nav-cta" href="/business-in-a-box">Open the box</a>
     </nav>
   </div>
 </header>
@@ -241,121 +283,143 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="hero">
     <span class="eyebrow">Free and open source</span>
-    <h1>Build a simple website.<br>Own it forever.</h1>
-    <p class="lede">BlueYucca is free help for everyday business owners and creators: tools, honest recommendations, and plain guides for building fast HTML websites you actually own. No subscriptions, no lock-in, no surprise price hikes. Just files you control.</p>
+    <h1>Business in a box.<br>Yours to keep.</h1>
+    <p class="lede">A free checklist of the few things a small business needs to own online: your name, your website, your email, your contact form, your customer list. For each one I show you a free or cheap way to start and a five minute test to check that you are in control. No pile of monthly fees. Nothing held hostage.</p>
     <div class="btn-row">
-      <a class="btn primary" href="/prompt-builder">Build your prompt</a>
-      <a class="btn secondary" href="/examples">See the templates</a>
+      <a class="btn primary" href="/business-in-a-box">Open the box</a>
+      <a class="btn secondary" href="/prompt-builder">Build a website prompt</a>
     </div>
   </section>
 
   <div class="quick-grid reveal">
-    <div class="quick"><strong>$0 and no account</strong><p>Nothing to sign up for, ever</p></div>
-    <div class="quick"><strong>Single HTML files</strong><p>Open them, read them, change them</p></div>
-    <div class="quick"><strong>Works with any AI</strong><p>Claude, ChatGPT, or Gemini</p></div>
-    <div class="quick"><strong>Host anywhere</strong><p>Free or nearly free, your choice</p></div>
+    <div class="quick"><strong>Free to start</strong><p>The domain name is the one cost, and I say so up front</p></div>
+    <div class="quick"><strong>Five minute tests</strong><p>Check what you own without being an expert</p></div>
+    <div class="quick"><strong>Labeled honestly</strong><p>Every pick says whether I have actually used it</p></div>
+    <div class="quick"><strong>Keep your exit</strong><p>If you cannot take it with you, I flag it as a cost</p></div>
   </div>
 
   <div class="current-note reveal">
     <div class="kicker">A note on staying current</div>
-    <p>AI is changing fast. Tools that matter today can be obsolete by next month. Some of them were obsolete last month and nobody told them yet. So everything on this site carries a last reviewed date. If a date looks old, <a href="/contact">ask me about it</a>.</p>
+    <p>AI is changing fast. Tools that matter today can be obsolete by next month. Some of them were obsolete last month and nobody told them yet. So every pick in the box carries a last reviewed date. If a date looks old, <a href="/contact">ask me about it</a>.</p>
     <p>The goal is not to have the most tools. The goal is to point you at the ones that actually work right now.</p>
   </div>
 
-  <section class="block" id="today">
-    <div class="kicker">What works today</div>
-    <h2>The free website prompt builder. <span class="datechip">Reviewed Jul 2026</span></h2>
-    <p class="sub">This is the fastest way I know today to get a real website you own. Answer some questions, get a prompt, paste it into the AI of your choice, and you get clean HTML with no subscription attached.</p>
-    <div class="why reveal">
-      <p>One year ago this approach produced websites I would not show anyone. Today it builds sites I am proud of in about an hour. That pace of change is exactly why I keep testing other options, and why this page has a date on it.</p>
-      <p><a class="btn primary" href="/prompt-builder" style="margin-top:6px;">Try the prompt builder</a></p>
+  <section class="block" id="box">
+    <div class="kicker">What is in the box</div>
+    <h2>Seven things. In the order a new owner needs them.</h2>
+    <p class="sub">Each one opens to a plain explanation, a free or cheap way to start, and a test you can run yourself. The labels show how much of it I have tested myself. Mixed means some picks are used and some are not.</p>
+    <div class="box-grid reveal">
+      <a class="box-card" href="/business-in-a-box#name">
+        <div class="box-num">01</div>
+        <h3>A name you own</h3>
+        <p>Your domain, in your account, with your email on it.</p>
+        <span class="chip cost">The one cost</span>
+      </a>
+      <a class="box-card" href="/business-in-a-box#home">
+        <div class="box-num">02</div>
+        <h3>A home base</h3>
+        <p>A simple website that is a file you keep.</p>
+        <span class="chip used">Used</span>
+      </a>
+      <a class="box-card" href="/business-in-a-box#email">
+        <div class="box-num">03</div>
+        <h3>Email on your name</h3>
+        <p>you@yourbusiness.com instead of a free mailbox.</p>
+        <span class="chip nottested">Not tested yet</span>
+      </a>
+      <a class="box-card" href="/business-in-a-box#contact">
+        <div class="box-num">04</div>
+        <h3>A way to be contacted</h3>
+        <p>A form that lands in an inbox you actually read.</p>
+        <span class="chip used">Used</span>
+      </a>
+      <a class="box-card" href="/business-in-a-box#paid">
+        <div class="box-num">05</div>
+        <h3>Scheduled and paid</h3>
+        <p>A booking link and a payment button, no store required.</p>
+        <span class="chip nottested">Not tested yet</span>
+      </a>
+      <a class="box-card" href="/business-in-a-box#list">
+        <div class="box-num">06</div>
+        <h3>A list you can take</h3>
+        <p>Customer emails you could export tomorrow.</p>
+        <span class="chip mixed">Mixed</span>
+      </a>
+      <a class="box-card" href="/business-in-a-box#working">
+        <div class="box-num">07</div>
+        <h3>Know it is working</h3>
+        <p>Visits, speed and search basics.</p>
+        <span class="chip mixed">Mixed</span>
+      </a>
+    </div>
+    <p class="sub" style="margin-top:22px;"><a href="/business-in-a-box"><strong>Open the full checklist</strong></a></p>
+  </section>
+
+  <section class="block">
+    <div class="kicker">How it works</div>
+    <h2>Check, fill the gap, check again.</h2>
+    <p class="sub">No tech background needed at any point.</p>
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <div class="step-num">01 CHECK</div>
+        <h3>Run one test</h3>
+        <p>Pick an item and run its five minute test. You will learn quickly whether you are in control or someone else is.</p>
+        <div class="chipbar">Can I log in? Can I export it?</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02 FILL THE GAP</div>
+        <h3>Start free or cheap</h3>
+        <p>If you are not in control, the checklist shows a way to start, labeled with whether I have used it myself.</p>
+        <div class="chipbar">Used / Testing / Not tested yet</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03 CHECK AGAIN</div>
+        <h3>Test it again later</h3>
+        <p>Forms fail quietly and prices change quietly. Run the test again in a few months.</p>
+        <div class="chipbar">Last reviewed <span class="live">OCT 2026</span></div>
+      </div>
     </div>
   </section>
 
-  <section class="block" id="tools">
-    <div class="kicker">The tools list</div>
-    <h2>Short list. Actually tested. <span class="datechip">Opening Aug 2026</span></h2>
-    <p class="sub">A curated list of tools for running a small business website: forms, payments, email, and more. Every tool on it passes one test: I would run my own business on it. Most of them, I already have.</p>
-    <div class="tool-cards">
-      <div class="tool-card featured">
-        <span class="sticker">IN USE HERE</span>
-        <h3>Contact forms</h3>
-        <p>The form on this very site runs on the first pick. Tested by using it, not by reading about it.</p>
-        <span class="status">First writeups: August</span>
-      </div>
-      <div class="tool-card">
-        <h3>Getting paid</h3>
-        <p>Simple ways to take payment from a plain HTML page, including a couple of options most lists never mention.</p>
-        <span class="status">In testing now</span>
-      </div>
-      <div class="tool-card">
-        <h3>Email and more</h3>
-        <p>Staying in touch with customers without renting another platform. Plus the tools I use to keep sites fast and findable.</p>
-        <span class="status">In testing now</span>
+  <section class="block" id="today">
+    <div class="kicker">A tool I built</div>
+    <h2>The website prompt builder. <span class="datechip">Reviewed Jul 2026</span></h2>
+    <p class="sub">Item two in the box is a home base, and this is the fastest way I know today to get one you own. Answer some questions, get a prompt, paste it into the AI of your choice, and you get clean HTML with no subscription attached.</p>
+    <div class="why reveal">
+      <p>It also works as a checklist of what a business has to decide before it has a site: what you do, who you serve, how people reach you, what you sell.</p>
+      <p>One year ago this approach produced websites I would not show anyone. Today it builds sites I am proud of in about an hour. That pace of change is exactly why this page has a date on it.</p>
+      <div class="btn-row" style="margin-top:16px;">
+        <a class="btn primary" href="/prompt-builder">Try the prompt builder</a>
+        <a class="btn secondary" href="/examples">Browse the templates</a>
       </div>
     </div>
-    <p class="sub" style="margin-top:22px;">Make a tool that works outside the big platforms? <a href="/contact">I want to hear from you.</a></p>
   </section>
 
   <section class="block">
     <div class="kicker">The difference</div>
-    <h2>Renting a website vs. owning one.</h2>
-    <p class="sub">Website builders make the first month easy and the years after expensive. BlueYucca starts you on the other path.</p>
+    <h2>Renting your identity vs. owning it.</h2>
+    <p class="sub">Platforms make the first month easy and the years after expensive. The box starts you on the other path.</p>
     <div class="compare reveal">
       <div class="col them">
         <div class="tag">On a platform</div>
-        <h3>Your site lives in their system.</h3>
+        <h3>Your business lives in their system.</h3>
         <ul>
           <li>The features you need next always sit in a higher plan</li>
-          <li>Your words and photos held inside their editor</li>
+          <li>Your words, photos and customer list held inside their tools</li>
           <li>Leaving means starting over from nothing</li>
           <li>The rules can change any time they like</li>
         </ul>
       </div>
       <div class="col us">
-        <div class="tag">With BlueYucca</div>
-        <h3>Your site is a file you keep.</h3>
+        <div class="tag">With the box</div>
+        <h3>Your business is things you keep.</h3>
         <ul>
-          <li>Pay nothing, or a few dollars for hosting you pick</li>
-          <li>Everything lives in plain HTML files on your computer</li>
-          <li>Move hosts any afternoon without losing a thing</li>
+          <li>Pay nothing to start, or a few dollars for tools you pick</li>
+          <li>Your site and your list live in files you can download</li>
+          <li>Switch providers without starting over</li>
           <li>Hand your files to any helper, human or AI</li>
         </ul>
       </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="kicker">How it works</div>
-    <h2>Three steps. That is the whole system.</h2>
-    <p class="sub">No tech background needed at any point.</p>
-    <div class="steps-grid reveal">
-      <div class="step-card">
-        <div class="step-num">01 SEE</div>
-        <h3>Browse the templates</h3>
-        <p>Real examples and free templates. Every one is a single HTML file you can open, read, and change. <a href="/examples">Look around</a>.</p>
-        <div class="chipbar">yourbusiness.com</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02 BUILD</div>
-        <h3>Describe your business</h3>
-        <p>The prompt builder turns plain words into a clear prompt for Claude, ChatGPT, or Gemini. <a href="/prompt-builder">Try it</a>.</p>
-        <div class="chipbar">A one page site for my landscaping business in Mesa...</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03 PUBLISH</div>
-        <h3>Put it online</h3>
-        <p>Free or nearly free, step by step, no tech background needed. <a href="/hosting">Follow the guide</a>.</p>
-        <div class="chipbar">yourbusiness.com <span class="live">LIVE</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="kicker">What's next</div>
-    <h2>More in the pipeline.</h2>
-    <div class="why reveal">
-      <p>I am testing tools that could make this whole process even simpler. Some are close. None are ready. When one earns a spot here, it will show up with a date and an honest writeup, same as everything else.</p>
     </div>
   </section>
 
@@ -384,26 +448,19 @@ import Layout from '../layouts/Layout.astro';
     <div class="kicker">Why this exists</div>
     <h2>Locked in a platform is not ownership. <mark>That is rent.</mark></h2>
     <div class="why reveal">
-      <p>I have watched too many small business owners get pulled into website builders that start cheap and friendly, then keep finding new ways to charge once everything is locked inside. Your photos, your words, your customer links, all held on a platform you cannot leave without starting over.</p>
-      <p>A simple business website does not need a platform. It needs a handful of HTML files that belong to you. Files you can host anywhere, move anytime, and hand to any helper, human or AI, without asking permission. That is what BlueYucca is here to help you build.</p>
+      <p>I have watched too many small business owners get pulled into tools that start cheap and friendly, then keep finding new ways to charge once everything is locked inside. Your photos, your words, your customer links, all held on a platform you cannot leave without starting over.</p>
+      <p>A small business does not need a stack of subscriptions. It needs a handful of things that belong to it: a name, a site, an inbox, a list. Things you can move anytime and hand to any helper, human or AI, without asking permission. That is what BlueYucca is here to help you check.</p>
     </div>
   </section>
 
   <section class="block">
     <div class="kicker">The honest numbers</div>
-    <h2>What it takes to own your site.</h2>
+    <h2>What it takes to own your business online.</h2>
     <div class="stats reveal">
-      <div class="stat"><div class="big">$0</div><strong>To build and publish</strong><p>The templates, the prompt builder, and free hosting options cost nothing.</p></div>
-      <div class="stat"><div class="big">1</div><strong>File per page</strong><p>Each page is one self-contained HTML file. Nothing hidden, nothing extra.</p></div>
-      <div class="stat"><div class="big">100%</div><strong>Yours</strong><p>Your files sit on your computer. Host them anywhere, leave anytime.</p></div>
+      <div class="stat"><div class="big">7</div><strong>Things in the box</strong><p>Each with a free or cheap way to start and a test you can run yourself.</p></div>
+      <div class="stat"><div class="big">5</div><strong>Minutes per test</strong><p>Give or take. I wrote them to be quick, and I cannot promise your inbox cooperates.</p></div>
+      <div class="stat"><div class="big">1</div><strong>Cost you cannot avoid</strong><p>The domain name. I say that first, not last.</p></div>
     </div>
-  </section>
-
-  <section class="block">
-    <div class="kicker">Start here</div>
-    <h2>Start with a real example.</h2>
-    <p class="sub">These templates are modeled on live, working sites. Pick the one closest to what you need, download it, and make it yours.</p>
-    <a class="btn secondary" href="/examples">Browse examples and templates</a>
   </section>
 
   <section class="block">
@@ -411,18 +468,22 @@ import Layout from '../layouts/Layout.astro';
     <h2>The things people ask first.</h2>
     <details>
       <summary>Do I need to know how to code?</summary>
-      <p>No. You describe your business in plain words, the AI writes the file, and you save it. If you can write an email and save a file, you can do this. Over time you may start recognizing bits of the HTML, and that is a bonus, not a requirement.</p>
+      <p>No. The checklist is about decisions and settings, not code. If you build the website part with AI, you describe your business in plain words, the AI writes the file, and you save it. If you can write an email and save a file, you can do this.</p>
     </details>
     <details>
       <summary>What does this cost?</summary>
-      <p>BlueYucca is free. The AI tools have free tiers that are enough for a simple site. Hosting can be free too, or a few dollars a month if you want extras. The hosting guide walks through both.</p>
+      <p>The checklist and the prompt builder are free. Most items have a free way to start. The domain name is the one cost you cannot avoid, and some items start to cost money as your business grows. The checklist says which, when I know.</p>
+    </details>
+    <details>
+      <summary>Have you tested everything on the list?</summary>
+      <p>No, and every pick says so. Each one is labeled used, testing, or not tested yet. I would rather show you the gaps than hide them.</p>
     </details>
     <details>
       <summary>What is the catch?</summary>
-      <p>There is none, and that is the point. BlueYucca is a free project from Cultivatum LLC built out of a conviction that small businesses should own their websites. Nothing here asks you to sign up, and the only measurement is a privacy-first counter that does not use cookies or track who you are. If you ever want my personal attention on your specific business, that is paid work and it lives at <a href="https://kakt.ai">kakt.ai</a>. Everything here stays free either way.</p>
+      <p>There is none, and that is the point. BlueYucca is a free project from Cultivatum LLC built out of a conviction that small businesses should own their digital footprint. Nothing here asks you to sign up, and the only measurement is a privacy-first counter that does not use cookies or track who you are. If you ever want my personal attention on your specific business, that is paid work and it lives at <a href="https://kakt.ai">kakt.ai</a>. Everything here stays free either way.</p>
     </details>
     <details>
-      <summary>Will the AI get it right the first time?</summary>
+      <summary>Will the AI get the website right the first time?</summary>
       <p>Sometimes yes, sometimes it takes a few tries. Results vary between Claude, ChatGPT, and Gemini, and even between days with the same tool. That is normal. Ask for changes in plain words and it will revise, just like a helpful contractor.</p>
     </details>
   </section>
@@ -432,10 +493,10 @@ import Layout from '../layouts/Layout.astro';
     <h2>About BlueYucca.</h2>
     <div class="about-grid">
       <div class="about-main">
-        <p>BlueYucca is a free, open source utility lab from Cultivatum LLC and part of the <a href="https://kakt.ai">kakt.ai</a> family. The whole point is simple: help small businesses and everyday people build websites they actually own, so nobody gets taken advantage of by rising subscriptions or platform lock-in.</p>
+        <p>BlueYucca is a free, open source utility lab from Cultivatum LLC and part of the <a href="https://kakt.ai">kakt.ai</a> family. The whole point is simple: help small businesses and everyday people own their digital identity, so nobody gets taken advantage of by rising subscriptions or platform lock-in.</p>
         <h3>How this started</h3>
         <p>Earlier this year I ran a fun test. I built a page for this domain in Microsoft FrontPage 2003, a website tool from more than two decades ago, and put it live on a modern global network. It loaded fast, it worked everywhere, and it needed no platform, no subscription, and no rebuild.</p>
-        <p>That little experiment gave me the push to go back to the basics: simple, lightweight HTML that belongs to you. <a href="/frontpage/"><strong>See the original FrontPage experiment</strong></a>.</p>
+        <p>That little experiment gave me the push to go back to the basics: simple, lightweight things that belong to you. <a href="/frontpage/"><strong>See the original FrontPage experiment</strong></a>.</p>
       </div>
       <div class="funfact">
         <div class="tag">FUN FACT</div>
@@ -447,11 +508,11 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <section class="cta-final">
-    <h2>Your website should belong to you.</h2>
-    <p>Pick a template, build your prompt, and put your site online today. No account, no cost, no catch.</p>
+    <h2>Your business should belong to you.</h2>
+    <p>Open the box, pick one item, and run its five minute test. No account, no sign-up, no catch.</p>
     <div class="btn-row">
-      <a class="btn primary" href="/prompt-builder">Build your prompt</a>
-      <a class="btn secondary" href="/examples">See the templates</a>
+      <a class="btn primary" href="/business-in-a-box">Open the box</a>
+      <a class="btn secondary" href="/prompt-builder">Build a website prompt</a>
     </div>
   </section>
 
@@ -461,6 +522,7 @@ import Layout from '../layouts/Layout.astro';
   <div class="wrap">
     <div class="retro-badge">BEST VIEWED IN ANY BROWSER &#10003;</div>
     <nav>
+      <a href="/business-in-a-box">Business in a Box</a> &middot;
       <a href="/examples">Examples</a> &middot;
       <a href="/prompt-builder">Prompt Builder</a> &middot;
       <a href="/hosting">Hosting Guide</a> &middot;
