@@ -4,13 +4,13 @@ import Header from '../components/Header.astro';
 ---
 <Layout>
 <Fragment slot="head">
-<meta name="description" content="A free business in a box checklist for small businesses: own your domain, website, email, contact form and customer list. A five minute self-test for each, and no pile of monthly fees.">
-<title>BlueYucca | Free Business in a Box Checklist for Small Businesses</title>
+<meta name="description" content="Own your name, website, email and customer list instead of renting them. Free tools and honest picks for small businesses. No sign-up, no lock-in.">
+<title>BlueYucca | Own Your Identity Online, Free Tools for Small Business</title>
 <link rel="canonical" href="https://blueyucca.com/">
 <meta property="og:site_name" content="BlueYucca">
 <meta property="og:type" content="website">
-<meta property="og:title" content="BlueYucca | Free Business in a Box Checklist for Small Businesses">
-<meta property="og:description" content="Own your domain, website, email, contact form and customer list. A free checklist with a five minute self-test for each item. No pile of monthly fees.">
+<meta property="og:title" content="BlueYucca | Own Your Identity Online, Free Tools for Small Business">
+<meta property="og:description" content="Own your name, website, email and customer list instead of renting them. Free tools and honest picks for small businesses.">
 <meta property="og:url" content="https://blueyucca.com/">
 <meta name="twitter:card" content="summary">
 <style is:inline>
@@ -241,32 +241,47 @@ import Header from '../components/Header.astro';
 <div class="wrap">
 
   <section class="hero">
-    <span class="eyebrow">Free and open source</span>
-    <h1>Business in a box.<br>Yours to keep.</h1>
-    <p class="lede">A free checklist of the few things a small business needs to own online: your name, your website, your email, your contact form, your customer list. For each one I show you a free or cheap way to start and a five minute test to check that you are in control. No pile of monthly fees. Nothing held hostage.</p>
+    <span class="eyebrow">Free, no sign-up</span>
+    <h1>Own your identity.</h1>
+    <p class="lede">Your name, your website, your email, your customer list. BlueYucca helps small businesses and everyday people own their digital identity, so nobody gets taken advantage of by rising subscriptions or platform lock-in.</p>
     <div class="btn-row">
-      <a class="btn primary" href="/business-in-a-box">Open the box</a>
+      <a class="btn primary" href="/business-in-a-box">See the tools</a>
       <a class="btn secondary" href="/prompt-builder">Build a website prompt</a>
     </div>
   </section>
 
-  <div class="quick-grid reveal">
-    <div class="quick"><strong>Free to start</strong><p>The domain name is the one cost, and I say so up front</p></div>
-    <div class="quick"><strong>Five minute tests</strong><p>Check what you own without being an expert</p></div>
-    <div class="quick"><strong>Labeled honestly</strong><p>Every pick says whether I have actually used it</p></div>
-    <div class="quick"><strong>Keep your exit</strong><p>If you cannot take it with you, I flag it as a cost</p></div>
-  </div>
-
-  <div class="current-note reveal">
-    <div class="kicker">A note on staying current</div>
-    <p>AI is changing fast. Tools that matter today can be obsolete by next month. Some of them were obsolete last month and nobody told them yet. So every pick in the box carries a last reviewed date. If a date looks old, <a href="/contact">ask me about it</a>.</p>
-    <p>The goal is not to have the most tools. The goal is to point you at the ones that actually work right now.</p>
-  </div>
+  <section class="block">
+    <div class="kicker">The difference</div>
+    <h2>Renting your identity vs. owning it.</h2>
+    <p class="sub">Platforms make the first month easy and the years after expensive.</p>
+    <div class="compare reveal">
+      <div class="col them">
+        <div class="tag">Renting</div>
+        <h3>Your business lives in their system.</h3>
+        <ul>
+          <li>The features you need next always sit in a higher plan</li>
+          <li>Your words, photos and customer list held inside their tools</li>
+          <li>Leaving means starting over from nothing</li>
+          <li>The rules can change any time they like</li>
+        </ul>
+      </div>
+      <div class="col us">
+        <div class="tag">Owning</div>
+        <h3>Your business is things you keep.</h3>
+        <ul>
+          <li>Pay nothing to start, or a few dollars for tools you pick</li>
+          <li>Your site and your list live in files you can download</li>
+          <li>Switch providers without starting over</li>
+          <li>Hand your files to any helper, human or AI</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <section class="block" id="box">
-    <div class="kicker">What is in the box</div>
-    <h2>Seven things. In the order a new owner needs them.</h2>
-    <p class="sub">Each one opens to a plain explanation, a free or cheap way to start, and a test you can run yourself. The labels show how much of it I have tested myself. Mixed means some picks are used and some are not.</p>
+    <div class="kicker">The toolbox</div>
+    <h2>Tools to own each piece.</h2>
+    <p class="sub">Mostly what a digital business needs, plus a few others. Every pick is labeled with whether I have actually used it.</p>
     <div class="box-grid reveal">
       <a class="box-card" href="/business-in-a-box#name">
         <div class="box-num">01</div>
@@ -311,140 +326,17 @@ import Header from '../components/Header.astro';
         <span class="chip mixed">Mixed</span>
       </a>
     </div>
-    <p class="sub" style="margin-top:22px;"><a href="/business-in-a-box"><strong>Open the full checklist</strong></a></p>
-  </section>
-
-  <section class="block">
-    <div class="kicker">How it works</div>
-    <h2>Check, fill the gap, check again.</h2>
-    <p class="sub">No tech background needed at any point.</p>
-    <div class="steps-grid reveal">
-      <div class="step-card">
-        <div class="step-num">01 CHECK</div>
-        <h3>Run one test</h3>
-        <p>Pick an item and run its five minute test. You will learn quickly whether you are in control or someone else is.</p>
-        <div class="chipbar">Can I log in? Can I export it?</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02 FILL THE GAP</div>
-        <h3>Start free or cheap</h3>
-        <p>If you are not in control, the checklist shows a way to start, labeled with whether I have used it myself.</p>
-        <div class="chipbar">Used / Testing / Not tested yet</div>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03 CHECK AGAIN</div>
-        <h3>Test it again later</h3>
-        <p>Forms fail quietly and prices change quietly. Run the test again in a few months.</p>
-        <div class="chipbar">Last reviewed <span class="live">OCT 2026</span></div>
-      </div>
-    </div>
+    <p class="sub" style="margin-top:22px;"><a href="/business-in-a-box"><strong>See all the tools</strong></a></p>
   </section>
 
   <section class="block" id="today">
     <div class="kicker">A tool I built</div>
-    <h2>The website prompt builder. <span class="datechip">Reviewed Jul 2026</span></h2>
-    <p class="sub">Item two in the box is a home base, and this is the fastest way I know today to get one you own. Answer some questions, get a prompt, paste it into the AI of your choice, and you get clean HTML with no subscription attached.</p>
-    <div class="why reveal">
-      <p>It also works as a checklist of what a business has to decide before it has a site: what you do, who you serve, how people reach you, what you sell.</p>
-      <p>One year ago this approach produced websites I would not show anyone. Today it builds sites I am proud of in about an hour. That pace of change is exactly why this page has a date on it.</p>
-      <div class="btn-row" style="margin-top:16px;">
-        <a class="btn primary" href="/prompt-builder">Try the prompt builder</a>
-        <a class="btn secondary" href="/examples">Browse the templates</a>
-      </div>
+    <h2>The website prompt builder.</h2>
+    <p class="sub">Answer some questions, get a prompt, paste it into the AI of your choice, and you get a clean HTML website with no subscription attached.</p>
+    <div class="btn-row">
+      <a class="btn primary" href="/prompt-builder">Try the prompt builder</a>
+      <a class="btn secondary" href="/examples">Browse the templates</a>
     </div>
-  </section>
-
-  <section class="block">
-    <div class="kicker">The difference</div>
-    <h2>Renting your identity vs. owning it.</h2>
-    <p class="sub">Platforms make the first month easy and the years after expensive. The box starts you on the other path.</p>
-    <div class="compare reveal">
-      <div class="col them">
-        <div class="tag">On a platform</div>
-        <h3>Your business lives in their system.</h3>
-        <ul>
-          <li>The features you need next always sit in a higher plan</li>
-          <li>Your words, photos and customer list held inside their tools</li>
-          <li>Leaving means starting over from nothing</li>
-          <li>The rules can change any time they like</li>
-        </ul>
-      </div>
-      <div class="col us">
-        <div class="tag">With the box</div>
-        <h3>Your business is things you keep.</h3>
-        <ul>
-          <li>Pay nothing to start, or a few dollars for tools you pick</li>
-          <li>Your site and your list live in files you can download</li>
-          <li>Switch providers without starting over</li>
-          <li>Hand your files to any helper, human or AI</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="blog">
-    <div class="kicker">From the blog</div>
-    <h2>Written by a person who lived it.</h2>
-    <p class="sub">Plain talk from twenty plus years of building websites and running small businesses. About one new post a month.</p>
-    <div class="post-cards reveal">
-      <div class="post-card">
-        <div class="pdate">Field notes</div>
-        <h3><a href="/blog/building-websites-with-ai">Building websites with AI: what hours of real use taught me</a></h3>
-        <p>ChatGPT, Gemini, and Claude compared through real projects, not demos. What each one gets right, where they stumble, and how to work with them.</p>
-        <a class="read" href="/blog/building-websites-with-ai">Read the post &rarr;</a>
-      </div>
-      <div class="post-card">
-        <div class="pdate">Origin story</div>
-        <h3><a href="/blog/why-blueyucca-exists">Why BlueYucca exists</a></h3>
-        <p>A domain bought in 2006, a FrontPage 2003 experiment on a modern network, and an honest look at why small businesses keep paying rent on websites.</p>
-        <a class="read" href="/blog/why-blueyucca-exists">Read the post &rarr;</a>
-      </div>
-    </div>
-    <p class="sub" style="margin-top:22px;"><a href="/blog/">See all posts</a></p>
-  </section>
-
-  <section class="block">
-    <div class="kicker">Why this exists</div>
-    <h2>Locked in a platform is not ownership. <mark>That is rent.</mark></h2>
-    <div class="why reveal">
-      <p>I have watched too many small business owners get pulled into tools that start cheap and friendly, then keep finding new ways to charge once everything is locked inside. Your photos, your words, your customer links, all held on a platform you cannot leave without starting over.</p>
-      <p>A small business does not need a stack of subscriptions. It needs a handful of things that belong to it: a name, a site, an inbox, a list. Things you can move anytime and hand to any helper, human or AI, without asking permission. That is what BlueYucca is here to help you check.</p>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="kicker">The honest numbers</div>
-    <h2>What it takes to own your business online.</h2>
-    <div class="stats reveal">
-      <div class="stat"><div class="big">7</div><strong>Things in the box</strong><p>Each with a free or cheap way to start and a test you can run yourself.</p></div>
-      <div class="stat"><div class="big">5</div><strong>Minutes per test</strong><p>Give or take. I wrote them to be quick, and I cannot promise your inbox cooperates.</p></div>
-      <div class="stat"><div class="big">1</div><strong>Cost you cannot avoid</strong><p>The domain name. I say that first, not last.</p></div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="kicker">Common questions</div>
-    <h2>The things people ask first.</h2>
-    <details>
-      <summary>Do I need to know how to code?</summary>
-      <p>No. The checklist is about decisions and settings, not code. If you build the website part with AI, you describe your business in plain words, the AI writes the file, and you save it. If you can write an email and save a file, you can do this.</p>
-    </details>
-    <details>
-      <summary>What does this cost?</summary>
-      <p>The checklist and the prompt builder are free. Most items have a free way to start. The domain name is the one cost you cannot avoid, and some items start to cost money as your business grows. The checklist says which, when I know.</p>
-    </details>
-    <details>
-      <summary>Have you tested everything on the list?</summary>
-      <p>No, and every pick says so. Each one is labeled used, testing, or not tested yet. I would rather show you the gaps than hide them.</p>
-    </details>
-    <details>
-      <summary>What is the catch?</summary>
-      <p>There is none, and that is the point. BlueYucca is a free project from Cultivatum LLC built out of a conviction that small businesses should own their digital footprint. Nothing here asks you to sign up, and the only measurement is a privacy-first counter that does not use cookies or track who you are. If you ever want my personal attention on your specific business, that is paid work and it lives at <a href="https://kakt.ai">kakt.ai</a>. Everything here stays free either way.</p>
-    </details>
-    <details>
-      <summary>Will the AI get the website right the first time?</summary>
-      <p>Sometimes yes, sometimes it takes a few tries. Results vary between Claude, ChatGPT, and Gemini, and even between days with the same tool. That is normal. Ask for changes in plain words and it will revise, just like a helpful contractor.</p>
-    </details>
   </section>
 
   <section class="block" id="about">
@@ -452,10 +344,8 @@ import Header from '../components/Header.astro';
     <h2>About BlueYucca.</h2>
     <div class="about-grid">
       <div class="about-main">
-        <p>BlueYucca is a free, open source utility lab from Cultivatum LLC and part of the <a href="https://kakt.ai">kakt.ai</a> family. The whole point is simple: help small businesses and everyday people own their digital identity, so nobody gets taken advantage of by rising subscriptions or platform lock-in.</p>
-        <h3>How this started</h3>
-        <p>Earlier this year I ran a fun test. I built a page for this domain in Microsoft FrontPage 2003, a website tool from more than two decades ago, and put it live on a modern global network. It loaded fast, it worked everywhere, and it needed no platform, no subscription, and no rebuild.</p>
-        <p>That little experiment gave me the push to go back to the basics: simple, lightweight things that belong to you. <a href="/frontpage/"><strong>See the original FrontPage experiment</strong></a>.</p>
+        <p>BlueYucca is a free project from Cultivatum LLC and part of the <a href="https://kakt.ai">kakt.ai</a> family. Nothing here asks you to sign up, and there are no affiliate links. If you ever want my personal help with your specific business, that lives at <a href="https://kakt.ai">kakt.ai</a>. Everything here stays free either way.</p>
+        <p>It started with a fun test: a page built in Microsoft FrontPage 2003, put live on a modern global network. It loaded fast, worked everywhere, and needed no platform and no subscription. <a href="/frontpage/"><strong>See the original FrontPage experiment</strong></a>.</p>
       </div>
       <div class="funfact">
         <div class="tag">FUN FACT</div>
@@ -468,9 +358,9 @@ import Header from '../components/Header.astro';
 
   <section class="cta-final">
     <h2>Your business should belong to you.</h2>
-    <p>Open the box, pick one item, and run its five minute test. No account, no sign-up, no catch.</p>
+    <p>Pick one tool and start there. No account, no sign-up, no catch.</p>
     <div class="btn-row">
-      <a class="btn primary" href="/business-in-a-box">Open the box</a>
+      <a class="btn primary" href="/business-in-a-box">See the tools</a>
       <a class="btn secondary" href="/prompt-builder">Build a website prompt</a>
     </div>
   </section>
