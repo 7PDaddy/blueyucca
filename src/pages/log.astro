@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+<Layout>
+<Fragment slot="head">
+<meta name="description" content="A running log of what I am learning while building and running websites with AI, third party tools, and my own site audits. Dated notes, not advice.">
+<title>The Learning Log | Building Sites With AI | BlueYucca</title>
+<link rel="canonical" href="https://blueyucca.com/log">
+<meta property="og:site_name" content="BlueYucca">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Learning Log | Building Sites With AI | BlueYucca">
+<meta property="og:description" content="A running log of what I am learning while building and running websites with AI, third party tools, and my own site audits. Dated notes, not advice.">
+<meta property="og:url" content="https://blueyucca.com/log">
+<meta name="twitter:card" content="summary_large_image">
+<style is:inline>
+  :root {
+    --cream: #FAF6ED; --cream-deep: #F3ECDC; --card: #FFFDF8;
+    --sand: #E5DAC3; --sand-dark: #D5C6A5;
+    --ink: #1E2A45; --ink-soft: #52607E;
+    --blue: #2455C4; --blue-deep: #17357F; --blue-dark: #1B3A8C;
+    --blue-soft: #4B79DC; --blue-wash: #E9EFFB; --blue-line: #C9D8F5;
+    --haz: #F2C94C;
+    --mono: "SFMono-Regular", Menlo, Consolas, "Courier New", monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--cream); color: var(--ink); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--blue); color: var(--cream); }
+  a { color: var(--blue); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  .hero { padding: 64px 0 40px; text-align: center; }
+  h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 850; color: var(--ink); margin-bottom: 16px; }
+  .lede { font-size: clamp(1.02rem, 2vw, 1.15rem); color: var(--ink-soft); }
+  .eyebrow {
+    display: inline-block; font-family: var(--mono);
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--blue);
+    border: 1.5px solid var(--blue-line); background: var(--blue-wash);
+    border-radius: 6px; padding: 3px 10px; margin-bottom: 14px;
+  }
+  .entry {
+    display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 36px; align-items: start;
+    background: var(--card); border: 2px solid var(--ink); border-radius: 14px;
+    padding: 32px; box-shadow: 5px 5px 0 var(--sand-dark); margin-bottom: 32px;
+  }
+  .entry h2 { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.02em; line-height: 1.15; font-weight: 800; color: var(--ink); margin: 12px 0 16px; }
+  .entry p { margin-bottom: 16px; font-size: 1.04rem; }
+  .entry p:last-child { margin-bottom: 0; }
+  .datechip {
+    display: inline-block; font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em; color: var(--blue-deep); background: var(--cream-deep);
+    border: 1.5px solid var(--sand-dark); border-radius: 6px; padding: 2px 9px;
+  }
+  .setup { background: var(--blue-wash); border: 2px solid var(--blue-line); border-radius: 12px; padding: 20px 22px; }
+  .setup h3 { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-deep); margin-bottom: 12px; }
+  .setup dt { font-weight: 700; color: var(--ink); }
+  .setup dd { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 12px; }
+  .setup dd:last-child { margin-bottom: 0; }
+  .retro-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--mono); font-size: 0.74rem; font-weight: 700;
+    color: var(--blue-deep); background: var(--card);
+    border: 2px solid var(--ink); border-radius: 6px;
+    padding: 5px 12px; margin-bottom: 18px; box-shadow: 3px 3px 0 var(--sand-dark);
+  }
+  footer.site-footer { border-top: 2px solid var(--ink); margin-top: 48px; padding: 40px 0 48px; text-align: center; color: var(--ink-soft); font-size: 0.93rem; }
+  footer.site-footer nav { margin-bottom: 12px; }
+  footer.site-footer nav a { color: var(--blue-deep); text-decoration: none; margin: 0 10px; font-weight: 600; }
+  footer.site-footer nav a:hover { text-decoration: underline; }
+  @media (max-width: 900px) { .entry { grid-template-columns: 1fr; gap: 24px; padding: 24px 22px; } }
+  @media (max-width: 760px) { .hero { padding: 44px 0 28px; } }
+</style>
+</Fragment>
+<Header />
+
+<div class="wrap">
+  <section class="hero">
+    <span class="eyebrow">Notes from the lab</span>
+    <h1>The learning log.</h1>
+    <p class="lede">Short, dated notes on what I am learning while building and running websites with AI. Newest first. These are notes, not advice, and some of them will change.</p>
+  </section>
+
+  <article class="entry">
+    <div>
+      <span class="datechip">2026-11-01</span>
+      <h2>It is not one size fits all</h2>
+      <p>I would not build a site without AI now. My last few WordPress sites are in the process of being converted.</p>
+      <p>But I also need AI to check my sites, and I need third party tools like Ahrefs. I am building my own tools and site audits, and I keep auditing, checking and refining them based on my needs. I will keep sharing those here, knowing they are often very subjective.</p>
+      <p>AI does not know what I need a website for, and that might change from one day to the next. Is it a business card site, or do I want it to do more? Some days I think I should just upload once a month. Then when do I need Astro to help manage the site?</p>
+      <p>Even with Claude, which is my preference today, there are differences between Claude.ai and Claude Code. I like to manage the content in Claude.ai and do the site work in Claude Code. It is a lot to do, and you still have to have some understanding of what you are looking for.</p>
+      <p>I am not ready for full automation until I know that what gets automated is what I need, not just what everybody else needs.</p>
+    </div>
+    <aside class="setup">
+      <h3>Where I am today</h3>
+      <dl>
+        <dt>Building</dt>
+        <dd>AI, with the last few WordPress sites being converted.</dd>
+        <dt>Content</dt>
+        <dd>Claude.ai.</dd>
+        <dt>Site work</dt>
+        <dd>Claude Code.</dd>
+        <dt>Checking</dt>
+        <dd>AI, third party tools like Ahrefs, and my own audits.</dd>
+        <dt>Full automation</dt>
+        <dd>Not yet.</dd>
+      </dl>
+    </aside>
+  </article>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="retro-badge">SUBJECT TO CHANGE</div>
+    <nav>
+      <a href="/">Home</a> &middot;
+      <a href="/business-in-a-box">Tools</a> &middot;
+      <a href="/examples">Examples</a> &middot;
+      <a href="/prompt-builder">Prompt Builder</a> &middot;
+      <a href="/hosting">Hosting Guide</a> &middot;
+      <a href="/blog/">Blog</a> &middot;
+      <a href="/contact">Contact</a> &middot;
+      <a href="/frontpage/">The FrontPage Experiment</a> &middot;
+      <a href="https://www.tiktok.com/@blueyucca">TikTok</a>
+    </nav>
+    <div>BlueYucca is a <a href="https://cultivatum.com">Cultivatum LLC</a> project, part of the <a href="https://kakt.ai">kakt.ai</a> family. Arizona, est. 2003.</div>
+  </div>
+</footer>
+</Layout>
