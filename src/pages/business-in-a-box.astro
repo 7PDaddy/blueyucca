@@ -235,6 +235,16 @@ import Header from '../components/Header.astro';
   .hero .datechip { margin-left: 8px; }
   .legend + p { margin-top: 12px; }
 
+  .hero, section.block > .kicker, section.block > h2, section.block > .sub { text-align: center; }
+  .hero .btn-row { justify-content: center; }
+  .center-row { justify-content: center; margin-top: 28px; }
+  .quick h3 { font-size: 1.08rem; margin-bottom: 6px; line-height: 1.3; }
+  .box-card .q { font-weight: 700; color: var(--ink); font-size: 0.96rem; }
+  .notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 54px 0 8px; }
+  .notes-grid .current-note { margin: 0; }
+  @media (max-width: 900px) { .notes-grid { grid-template-columns: 1fr; } }
+  .box-card.start { background: var(--blue); color: var(--cream); box-shadow: 5px 5px 0 var(--ink); }
+  .box-card.start .box-num, .box-card.start .q { color: var(--cream); }
 </style>
 </Fragment>
 <Header />
@@ -242,12 +252,54 @@ import Header from '../components/Header.astro';
 <div class="wrap">
 
   <section class="hero">
-    <span class="eyebrow">The checklist</span>
-    <h1>Business in a box.</h1>
-    <p class="lede">Seven things a small business should own online. For each one: what it is, a free or cheap way to start, a test you can run in about five minutes, and when you might outgrow it. Work down the page and you will see how far along you are. <span class="datechip">Reviewed Oct 2026</span></p>
+    <span class="eyebrow">The toolbox</span>
+    <h1>Seven things to own.</h1>
+    <p class="lede">Each section below is one piece of your business online: why it matters, a free or cheap way to start, a test you can run in about five minutes, and when you might outgrow it. Run the test first. If you pass, move on. If you do not, the tool is right there. <span class="datechip">Reviewed Nov 2026</span></p>
   </section>
 
-  <div class="current-note reveal">
+  <section class="block">
+    <div class="kicker">How to use this page</div>
+    <h2>Test, fix, keep.</h2>
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <div class="step-num">STEP 1</div>
+        <h3>Find your gaps.</h3>
+        <p>Pick a question below and run its five-minute test. Most people find a gap within the first two.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">STEP 2</div>
+        <h3>Fix one at a time.</h3>
+        <p>Use the free or cheap start in that section. Start with your name if you are not sure where to begin.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">STEP 3</div>
+        <h3>Keep the keys.</h3>
+        <p>Save your logins and your files somewhere you control. Rerun the tests every few months, because things fail quietly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="kicker">Jump to a question</div>
+    <h2>Where do you stand?</h2>
+    <div class="box-grid reveal">
+      <a class="box-card" href="#name"><div class="box-num">01</div><h3>A name you own</h3><p class="q">Can you log into the account that holds your domain?</p></a>
+      <a class="box-card" href="#home"><div class="box-num">02</div><h3>A home base</h3><p class="q">If your host disappeared tomorrow, do you have every file?</p></a>
+      <a class="box-card" href="#email"><div class="box-num">03</div><h3>Email on your name</h3><p class="q">Does your email address end in your own business name?</p></a>
+      <a class="box-card" href="#contact"><div class="box-num">04</div><h3>A way to be contacted</h3><p class="q">When someone fills out your form, does it actually reach you?</p></a>
+      <a class="box-card" href="#paid"><div class="box-num">05</div><h3>Scheduled and paid</h3><p class="q">Can a customer book and pay you without a phone call?</p></a>
+      <a class="box-card" href="#list"><div class="box-num">06</div><h3>A list you can take</h3><p class="q">Could you export your customer list tomorrow?</p></a>
+      <a class="box-card" href="#working"><div class="box-num">07</div><h3>Know it is working</h3><p class="q">Do you know whether anyone visited your site last week?</p></a>
+      <a class="box-card start" href="#name">
+        <div class="box-num">NOT SURE?</div>
+        <h3>Start with 01.</h3>
+        <p class="q">Everything else hangs from your name, so it is the best first test.</p>
+      </a>
+    </div>
+  </section>
+
+  <div class="notes-grid reveal">
+  <div class="current-note">
     <div class="kicker">How to read this page</div>
     <p>Every pick wears one of these labels, so you know how much weight to give it.</p>
     <div class="legend">
@@ -259,13 +311,17 @@ import Header from '../components/Header.astro';
     <div class="legend">
       <span class="chip nottested">Not tested yet</span> <span>It is on my list. I have not tried it.</span>
     </div>
-    <p>I also run an exit test on everything: if you cannot take it with you, I flag that as a cost.</p>
-    <p>There are no affiliate links on this page. Where I know someone at a company, I say so next to the pick. Prices and plans change, so check the company's own page before you buy.</p>
   </div>
 
-  <div class="current-note reveal" style="background:var(--cream-deep);">
+  <div class="current-note">
+    <div class="kicker">Honest by design</div>
+    <p>I run an exit test on everything: if you cannot take it with you, I flag that as a cost.</p>
+    <p>There are no affiliate links on this page. Where I know someone at a company, I say so next to the pick. Prices and plans change, so check the company's own page before you buy.</p>
+  </div>
+  <div class="current-note" style="background:var(--cream-deep);">
     <div class="kicker">The one cost up front</div>
     <p>This is a free checklist, and most of it can be done for free. The exception is the domain name in item one. It costs money every year, and I would rather tell you that first.</p>
+  </div>
   </div>
 
   <!-- 01 -->
@@ -381,7 +437,7 @@ import Header from '../components/Header.astro';
       <dd>Three small questions: is anyone visiting, is the site fast, and can people find it in search. You do not need a dashboard full of charts to answer them.</dd>
       <dt>A free or cheap way to start</dt>
       <dd>
-        <div class="pick"><strong>Visits: Umami and GoatCounter.</strong> <span class="chip testing">Testing</span> I have run both on this site as tests. Both avoid cookies. Plausible is another candidate, and I have not tested it.</div>
+        <div class="pick"><strong>Visits: GoatCounter.</strong> <span class="chip used">Used</span> It runs on this site and my other sites, and it avoids cookies. I tried Umami here as a test and went back to GoatCounter only. Plausible is another candidate, and I have not tested it.</div>
         <div class="pick"><strong>Search: Ahrefs Free.</strong> <span class="chip used">Used</span> The free tier, formerly called Ahrefs Webmaster Tools, covers a site audit and backlink data for sites you can verify you own.</div>
         <div class="pick"><strong>Speed: GTmetrix.</strong> <span class="chip used">Used</span> Free for spot checks. Google's PageSpeed Insights is also free and needs no account.</div>
       </dd>
@@ -398,7 +454,7 @@ import Header from '../components/Header.astro';
     <div class="why">
       <p>Most people find a gap within the first two tests. That is the point of the tests. If you would rather work through the list with someone, that kind of help lives at <a href="https://kakt.ai">kakt.ai</a>. This checklist stays free either way.</p>
       <p>Found a mistake, or a tool I should look at? <a href="/contact">Tell me</a>.</p>
-      <p class="fine">Last reviewed: October 2026.</p>
+      <p class="fine">Last reviewed: November 2026.</p>
     </div>
   </section>
 
