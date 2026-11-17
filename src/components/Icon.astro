@@ -1,0 +1,35 @@
+---
+// Small line icons in a tilted "sticker" box. Plain inline SVG, no icon font.
+// accent: "blue" (tools) or "haz" (warnings and problems).
+interface Props { name: string; accent?: 'blue' | 'haz'; }
+const { name, accent = 'blue' } = Astro.props;
+const icons: Record<string, string> = {
+  key: '<circle class="a" cx="16" cy="24" r="8"/><circle cx="16" cy="24" r="2.5"/><path d="M24 24h17M35 24v6M40 24v5"/>',
+  house: '<path class="a" d="M12 21v19h24V21"/><path d="M7 23 24 9l17 14"/><path d="M21 40V30h6v10"/>',
+  envelope: '<rect class="a" x="7" y="12" width="34" height="24" rx="2"/><path d="m7 14 17 12 17-12"/>',
+  chat: '<path class="a" d="M8 10h32v22H22l-8 7v-7H8z"/><path d="M14 18h20M14 24h12"/>',
+  calendar: '<rect class="a" x="8" y="11" width="32" height="29" rx="2"/><path d="M8 19h32M16 7v8M32 7v8M18 30l4 4 8-8"/>',
+  list: '<rect class="a" x="11" y="8" width="26" height="33" rx="2"/><path d="M16 17h.01M21 17h11M16 24h.01M21 24h11M16 31h.01M21 31h8"/>',
+  chart: '<path d="M8 40h32"/><rect class="a" x="11" y="27" width="6" height="13"/><rect class="a" x="21" y="19" width="6" height="21"/><rect class="a" x="31" y="11" width="6" height="29"/>',
+  search: '<circle class="a" cx="21" cy="21" r="11"/><path d="m29 29 10 10"/>',
+  toolbox: '<rect class="a" x="6" y="18" width="36" height="22" rx="2"/><path d="M18 18v-5h12v5M6 27h36M21 27v4h6v-4"/>',
+  lock: '<rect class="a" x="11" y="21" width="26" height="19" rx="2"/><path d="M17 21v-6a7 7 0 0 1 14 0v6M24 28v5"/>',
+  climb: '<rect class="a" x="8" y="30" width="7" height="10"/><rect class="a" x="19" y="24" width="7" height="16"/><path d="M8 40h32M14 20l9-8 6 5 11-9M33 8h7v7"/>',
+  people: '<circle class="a" cx="18" cy="17" r="6"/><path d="M7 39c0-7 4-11 11-11s11 4 11 11"/><circle cx="33" cy="19" r="5"/><path d="M31 28c6 0 10 4 10 11"/>',
+  tag: '<rect class="a" x="7" y="14" width="30" height="21" rx="2"/><path d="m7 16 15 11 15-11"/><path d="M34 30l7 7M41 30l-7 7"/>',
+};
+const body = icons[name] ?? icons.search;
+---
+<span class={`ico ico-${accent}`} aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" set:html={body} /></span>
+
+<style is:global>
+  .ico {
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+    width: 52px; height: 52px; background: var(--card); color: var(--ink);
+    border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--sand-dark);
+    transform: rotate(-3deg);
+  }
+  .ico svg { width: 36px; height: 36px; }
+  .ico .a { fill: var(--blue-wash); }
+  .ico-haz .a { fill: var(--haz); }
+</style>

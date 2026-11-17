@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
+import Icon from '../components/Icon.astro';
 ---
 <Layout>
 <Fragment slot="head">
@@ -245,6 +246,10 @@ import Header from '../components/Header.astro';
   @media (max-width: 900px) { .notes-grid { grid-template-columns: 1fr; } }
   .box-card.start { background: var(--blue); color: var(--cream); box-shadow: 5px 5px 0 var(--ink); }
   .box-card.start .box-num, .box-card.start .q { color: var(--cream); }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+  .box-card.start .ico { color: var(--ink); }
+  .quick .ico, .step-card .ico { margin-bottom: 14px; }
+  .item-head .ico { align-self: center; }
 </style>
 </Fragment>
 <Header />
@@ -262,16 +267,19 @@ import Header from '../components/Header.astro';
     <h2>Test, fix, keep.</h2>
     <div class="steps-grid reveal">
       <div class="step-card">
+        <Icon name="search" />
         <div class="step-num">STEP 1</div>
         <h3>Find your gaps.</h3>
         <p>Pick a question below and run its five-minute test. Most people find a gap within the first two.</p>
       </div>
       <div class="step-card">
+        <Icon name="toolbox" />
         <div class="step-num">STEP 2</div>
         <h3>Fix one at a time.</h3>
         <p>Use the free or cheap start in that section. Start with your name if you are not sure where to begin.</p>
       </div>
       <div class="step-card">
+        <Icon name="key" />
         <div class="step-num">STEP 3</div>
         <h3>Keep the keys.</h3>
         <p>Save your logins and your files somewhere you control. Rerun the tests every few months, because things fail quietly.</p>
@@ -283,15 +291,15 @@ import Header from '../components/Header.astro';
     <div class="kicker">Jump to a question</div>
     <h2>Where do you stand?</h2>
     <div class="box-grid reveal">
-      <a class="box-card" href="#name"><div class="box-num">01</div><h3>A name you own</h3><p class="q">Can you log into the account that holds your domain?</p></a>
-      <a class="box-card" href="#home"><div class="box-num">02</div><h3>A home base</h3><p class="q">If your host disappeared tomorrow, do you have every file?</p></a>
-      <a class="box-card" href="#email"><div class="box-num">03</div><h3>Email on your name</h3><p class="q">Does your email address end in your own business name?</p></a>
-      <a class="box-card" href="#contact"><div class="box-num">04</div><h3>A way to be contacted</h3><p class="q">When someone fills out your form, does it actually reach you?</p></a>
-      <a class="box-card" href="#paid"><div class="box-num">05</div><h3>Scheduled and paid</h3><p class="q">Can a customer book and pay you without a phone call?</p></a>
-      <a class="box-card" href="#list"><div class="box-num">06</div><h3>A list you can take</h3><p class="q">Could you export your customer list tomorrow?</p></a>
-      <a class="box-card" href="#working"><div class="box-num">07</div><h3>Know it is working</h3><p class="q">Do you know whether anyone visited your site last week?</p></a>
+      <a class="box-card" href="#name"><div class="card-top"><div class="box-num">01</div><Icon name="key" /></div><h3>A name you own</h3><p class="q">Can you log into the account that holds your domain?</p></a>
+      <a class="box-card" href="#home"><div class="card-top"><div class="box-num">02</div><Icon name="house" /></div><h3>A home base</h3><p class="q">If your host disappeared tomorrow, do you have every file?</p></a>
+      <a class="box-card" href="#email"><div class="card-top"><div class="box-num">03</div><Icon name="envelope" /></div><h3>Email on your name</h3><p class="q">Does your email address end in your own business name?</p></a>
+      <a class="box-card" href="#contact"><div class="card-top"><div class="box-num">04</div><Icon name="chat" /></div><h3>A way to be contacted</h3><p class="q">When someone fills out your form, does it actually reach you?</p></a>
+      <a class="box-card" href="#paid"><div class="card-top"><div class="box-num">05</div><Icon name="calendar" /></div><h3>Scheduled and paid</h3><p class="q">Can a customer book and pay you without a phone call?</p></a>
+      <a class="box-card" href="#list"><div class="card-top"><div class="box-num">06</div><Icon name="list" /></div><h3>A list you can take</h3><p class="q">Could you export your customer list tomorrow?</p></a>
+      <a class="box-card" href="#working"><div class="card-top"><div class="box-num">07</div><Icon name="chart" /></div><h3>Know it is working</h3><p class="q">Do you know whether anyone visited your site last week?</p></a>
       <a class="box-card start" href="#name">
-        <div class="box-num">NOT SURE?</div>
+        <div class="card-top"><div class="box-num">NOT SURE?</div><Icon name="search" /></div>
         <h3>Start with 01.</h3>
         <p class="q">Everything else hangs from your name, so it is the best first test.</p>
       </a>
@@ -326,7 +334,7 @@ import Header from '../components/Header.astro';
 
   <!-- 01 -->
   <section class="item reveal" id="name">
-    <div class="item-head"><span class="item-num">01</span><h2>A name you own</h2></div>
+    <div class="item-head"><Icon name="key" /><span class="item-num">01</span><h2>A name you own</h2></div>
     <dl>
       <dt>What it is</dt>
       <dd>Your domain name is your address on the internet. Your website, your email and every link you hand out hang from it. If it is registered in someone else's account, you are renting your own name.</dd>
@@ -343,7 +351,7 @@ import Header from '../components/Header.astro';
 
   <!-- 02 -->
   <section class="item reveal" id="home">
-    <div class="item-head"><span class="item-num">02</span><h2>A home base</h2></div>
+    <div class="item-head"><Icon name="house" /><span class="item-num">02</span><h2>A home base</h2></div>
     <dl>
       <dt>What it is</dt>
       <dd>A simple website that says who you are, what you do and how to reach you. One page is enough. It is the place all your other tools point to, so it should be a file you can download, not a room in someone else's building.</dd>
@@ -360,7 +368,7 @@ import Header from '../components/Header.astro';
 
   <!-- 03 -->
   <section class="item reveal" id="email">
-    <div class="item-head"><span class="item-num">03</span><h2>Email on your name</h2></div>
+    <div class="item-head"><Icon name="envelope" /><span class="item-num">03</span><h2>Email on your name</h2></div>
     <dl>
       <dt>What it is</dt>
       <dd>An address like you@yourbusiness.com instead of a free mailbox. It is one of the cheapest ways to look like a real business, and it stays with you if you ever change providers.</dd>
@@ -377,7 +385,7 @@ import Header from '../components/Header.astro';
 
   <!-- 04 -->
   <section class="item reveal" id="contact">
-    <div class="item-head"><span class="item-num">04</span><h2>A way to be contacted</h2></div>
+    <div class="item-head"><Icon name="chat" /><span class="item-num">04</span><h2>A way to be contacted</h2></div>
     <dl>
       <dt>What it is</dt>
       <dd>A form on your site that sends a message to an inbox you read. Without one, you are choosing between posting your email address in public, where spammers collect it, and hoping people find another way.</dd>
@@ -394,7 +402,7 @@ import Header from '../components/Header.astro';
 
   <!-- 05 -->
   <section class="item reveal" id="paid">
-    <div class="item-head"><span class="item-num">05</span><h2>Scheduled and paid</h2></div>
+    <div class="item-head"><Icon name="calendar" /><span class="item-num">05</span><h2>Scheduled and paid</h2></div>
     <dl>
       <dt>What it is</dt>
       <dd>A link people can use to book time with you, and a button or link they can use to pay you. Neither needs a full online store.</dd>
@@ -413,7 +421,7 @@ import Header from '../components/Header.astro';
 
   <!-- 06 -->
   <section class="item reveal" id="list">
-    <div class="item-head"><span class="item-num">06</span><h2>A list you can take with you</h2></div>
+    <div class="item-head"><Icon name="list" /><span class="item-num">06</span><h2>A list you can take with you</h2></div>
     <dl>
       <dt>What it is</dt>
       <dd>The names and email addresses of people who said yes to hearing from you. A follower count is a number someone else keeps for you. A list you can export is yours.</dd>
@@ -431,7 +439,7 @@ import Header from '../components/Header.astro';
 
   <!-- 07 -->
   <section class="item reveal" id="working">
-    <div class="item-head"><span class="item-num">07</span><h2>Know it is working</h2></div>
+    <div class="item-head"><Icon name="chart" /><span class="item-num">07</span><h2>Know it is working</h2></div>
     <dl>
       <dt>What it is</dt>
       <dd>Three small questions: is anyone visiting, is the site fast, and can people find it in search. You do not need a dashboard full of charts to answer them.</dd>
