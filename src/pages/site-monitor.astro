@@ -264,6 +264,19 @@ import EggBasket from '../components/EggBasket.astro';
   .egg-art { width: 100%; max-width: 460px; height: auto; justify-self: center; }
   .quick.cannot { background: var(--cream-deep); }
   #next .step-card .chip { margin-bottom: 10px; }
+  .prompt-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 28px; align-items: start; margin-top: 8px; }
+  .prompt-steps { display: grid; gap: 16px; }
+  .prompt-steps .step-card { padding: 16px 18px; }
+  .prompt-note { font-size: 0.9rem; color: var(--ink-soft); }
+  .prompt-note .chip { margin-right: 6px; }
+  .prompt-wrap { position: relative; }
+  .copy-btn { position: absolute; top: 12px; right: 12px; padding: 8px 14px; font-size: 0.88rem; cursor: pointer; font-family: inherit; }
+  .promptbox {
+    background: #141821; color: #C7E3D4; border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--blue);
+    padding: 58px 22px 22px; font-family: var(--mono); font-size: 0.82rem; line-height: 1.6;
+    white-space: pre-wrap; word-wrap: break-word; max-height: 620px; overflow: auto; margin: 0;
+  }
+  @media (max-width: 860px) { .prompt-grid { grid-template-columns: 1fr; } }
 </style>
 </Fragment>
 <Header />
@@ -277,8 +290,8 @@ import EggBasket from '../components/EggBasket.astro';
     <p class="lede">I built a site health dashboard to watch my own 15 websites. Every morning it checks what a visitor actually gets, sorts what it finds into red, yellow and green, and hands me a short list of what to fix. This page is where I am turning it into something you can set up for your own site.</p>
     <p class="status-line"><span class="chip used">Used</span> daily on my sites &nbsp; <span class="chip nottested">In progress</span> the version you can copy</p>
     <div class="btn-row">
-      <a class="btn primary" href="#why">Why I built it</a>
-      <a class="btn secondary" href="/log">Follow along in the log</a>
+      <a class="btn primary" href="#prompt">Get the prompt</a>
+      <a class="btn secondary" href="#why">Why I built it</a>
     </div>
     </div>
     <MonitorArt />
@@ -388,6 +401,57 @@ import EggBasket from '../components/EggBasket.astro';
     </div>
   </section>
 
+  <section class="block" id="prompt">
+    <div class="kicker">Build yours today</div>
+    <h2>Start with a prompt.</h2>
+    <p class="sub">The kit you can copy is still in progress. In the meantime, this prompt has an AI assistant interview you first, then build a small monitor that fits your site.</p>
+    <div class="prompt-grid">
+      <div class="prompt-steps">
+        <div class="step-card">
+          <div class="step-num">STEP 1</div>
+          <h3>Copy the prompt.</h3>
+          <p>One click. Nothing to fill in yet.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">STEP 2</div>
+          <h3>Paste it into a coding assistant.</h3>
+          <p>One that can create and run files, like Claude Code, opened in a new empty folder.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">STEP 3</div>
+          <h3>Answer its questions.</h3>
+          <p>It asks about your site first, explains what it will build, and waits for your OK.</p>
+        </div>
+        <p class="prompt-note"><span class="chip nottested">Not tested yet</span> I wrote this from what my own monitor does. I have not run this exact prompt start to finish on a fresh site yet. If you try it, <a href="/contact">tell me how it went</a>.</p>
+      </div>
+      <div class="prompt-wrap">
+        <button class="btn primary copy-btn" type="button" id="copy-monitor-prompt">Copy prompt</button>
+        <pre class="promptbox" id="monitor-prompt">I want you to help me build my own website health monitor: a small tool I own that checks my site the way a visitor sees it and gives me a red, yellow and green report with a plain list of what to fix.
+
+Before you write any code, interview me. Ask these one at a time and wait for each answer. Keep it plain, I am not a developer.
+1. What is my website address? Do I have more than one site to watch?
+2. What is the site for right now: a business card, a place to book or buy, a blog, or something else? This changes what counts as broken.
+3. How often do I expect to update it: weekly, monthly or rarely?
+4. Do I want a check I run whenever I like, or a daily check that runs on its own? If daily, do I have a free GitHub account?
+5. Do I use visitor stats, like GoatCounter or Google Analytics, and do I want those numbers in the report?
+6. What computer do I use, Windows or Mac, and have I ever used a terminal?
+7. Has anything broken on my site before that I want watched closely?
+
+Then tell me in plain words what you will build, and wait for my OK.
+
+When you build it, follow these rules:
+- Check what a visitor actually receives, not only the status code. A page can answer 200 OK and still be broken. Confirm images and files really load and are the right type, a missing page returns a real 404 instead of the homepage, and the social sharing image (og:image) exists and is an image.
+- Also check broken links inside and outside the site, page titles and descriptions, robots.txt, sitemap.xml and a favicon. If I told you how often I update, note when the site's text last changed.
+- Sort every finding into red (a visitor would notice), yellow (fix soon) or info (nothing to do). Explain each one in a plain sentence and list the pages it affects.
+- Write the report as one simple HTML page I can open in a browser, with the top three things to fix at the top.
+- Be polite to websites: only check my own sites, identify the tool with a plain user agent, keep the page count small and pause between requests.
+- Never put passwords, API keys or tokens in files I might share or commit. If my visitor stats need a key, show me how to store it safely.
+- Keep the code small and readable, with comments a beginner can follow, and tell me exactly how to run it again.
+- Do not change my website. If you find problems, list them and wait. I review every change before anything goes live.</pre>
+      </div>
+    </div>
+  </section>
+
   <section class="block" id="next">
     <div class="kicker">Where it is headed</div>
     <h2>Turning my tool into yours.</h2>
@@ -413,7 +477,7 @@ import EggBasket from '../components/EggBasket.astro';
 
   <section class="cta-final">
     <h2>Want it for your site?</h2>
-    <p>It is not ready to hand out yet. If you would like to try it early, or you have a check you wish existed, tell me. I will post progress in the learning log.</p>
+    <p>The kit is not ready to hand out yet, but you can try the prompt above today. If you have a check you wish existed, tell me. I will post progress in the learning log.</p>
     <div class="btn-row">
       <a class="btn primary" href="/contact">Tell me</a>
       <a class="btn secondary" href="/log">Read the learning log</a>
@@ -448,6 +512,25 @@ import EggBasket from '../components/EggBasket.astro';
     entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<script is:inline>
+(function () {
+  var btn = document.getElementById('copy-monitor-prompt');
+  var box = document.getElementById('monitor-prompt');
+  if (!btn || !box) return;
+  function done() { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy prompt'; }, 2000); }
+  btn.addEventListener('click', function () {
+    var text = box.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(box);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      try { document.execCommand('copy'); done(); } catch (e) { btn.textContent = 'Select and copy'; }
+    }
+  });
 })();
 </script>
 </Layout>
